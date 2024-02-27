@@ -9,8 +9,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                bat 'dir groupproject'
-                bat 'npm run start'
+                bat 'npm --prefix groupproject/ run start'
             }
         }
     }
