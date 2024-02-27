@@ -11,9 +11,9 @@ pipeline {
         }
         stage ('Deploy') {
             parallel {
-                stage ('react app') {
+                stage ('reactapp') {
                     steps {
-                        bat 'npm  start'
+                        bat 'npm start'
                     }
                 }
                 stage ('server') {
