@@ -3,15 +3,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'cd groupproject'
                 bat 'npm install'
+                bat ' npm run build'
             }
         }
         stage('Deploy') {
             steps {
                bat 'json-server --watch db.json --port 8000'
-               bat  'npm run dev'
-            }
+               bat  'npm run start'
         }
     }
 }
