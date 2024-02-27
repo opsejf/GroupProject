@@ -14,11 +14,12 @@ pipeline {
                         bat 'json-server --watch db.json --port 8000'
                         }
                     }
-                    stage ('run program'){
+                    stage ('run program new'){
                         steps{
                         bat  'npm run start'
                         }
                     }
             }
     }
- }
+    }
+}
