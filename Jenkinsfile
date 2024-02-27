@@ -5,6 +5,7 @@ pipeline {
             steps {
                 bat 'npm install'
                 bat 'npm i -S react-scripts'
+                bat 'npm i react-router-dom --save'
                 
             }
         }
