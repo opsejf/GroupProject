@@ -9,17 +9,15 @@ pipeline {
                 
             }
         }
-        stage ('Deploy') {
-            parallel {
-                stage ('reactapp') {
-                    steps {
-                        bat 'npm start'
-                    }
+        parallel {
+            stage ('reactapp') {
+                steps {
+                    bat 'npm start'
                 }
-                stage ('server') {
-                    steps {
-                        bat 'npx json-server src/database/Properties.json'
-                    }
+            }
+            stage ('server') {
+                steps {
+                    bat 'npx json-server src/database/Properties.json'
                 }
             }
         }
