@@ -18,7 +18,7 @@ pipeline {
                 }
                 stage ('server') {
                     steps {
-                        bat 'npx json-server src/database/Properties.json'
+                        bat 'npx json-server src/database/Properties.json --port 8000'
                     }
                 }
             }
