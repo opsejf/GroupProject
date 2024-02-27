@@ -28,7 +28,7 @@ export default function (props){
     
 
 
-        fetch('http://localhost:3000/sellers', {
+        fetch('http://localhost:8000/sellers', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
