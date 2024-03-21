@@ -58,7 +58,11 @@ function DisplayProperties() {
       }
       <ul className='filter-list'>
         <li className='results'>{`${totalSearchResult} results`}</li>
+<<<<<<< HEAD
         <li className='sort'>Sort: 
+=======
+        <li className='sort'>Sort:
+>>>>>>> b22e8ef8b71665aeb8e9548b75bebcee2d680bdb
           <select onChange={(event) => { setFilter(event.target.value) }}>
             <option value="Highest Price">Highest Price</option>
             <option value="Lowest Price">Lowest Price</option>

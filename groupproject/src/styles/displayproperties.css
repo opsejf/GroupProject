@@ -234,7 +234,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b22e8ef8b71665aeb8e9548b75bebcee2d680bdb
 .filter-test li {
     display: flex;
     align-items: center;
@@ -250,17 +253,32 @@
 }
 
 .sort{
+<<<<<<< HEAD
+=======
+    margin-top: 1em;
+>>>>>>> b22e8ef8b71665aeb8e9548b75bebcee2d680bdb
     gap: 0.5em;
     align-items: center;
     text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+.sort > select{
+    padding: 0.5em;
+    border-radius: 25px;
+}
+
+>>>>>>> b22e8ef8b71665aeb8e9548b75bebcee2d680bdb
 .results {
     text-align: center;
     align-items: center;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b22e8ef8b71665aeb8e9548b75bebcee2d680bdb
 @media screen and (max-width: 768px){
 
     .empty{
