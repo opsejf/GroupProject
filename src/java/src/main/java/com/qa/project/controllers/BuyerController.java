@@ -32,12 +32,12 @@ public class BuyerController {
 
     @PatchMapping("/update-buyer")
     public Buyer updateBuyer(@PathVariable int id,
-                             @RequestParam(required = false) String firstName,
-                             @RequestParam(required = false) String lastName,
+                             @RequestParam(required = false) String first_name,
+                             @RequestParam(required = false) String last_name,
                              @RequestParam(required = false) String email,
-                             @RequestParam(required = false) String mobileNo)
+                             @RequestParam(required = false) String telephone)
     {
-        return this.service.updateBuyer(id, firstName, lastName, email, mobileNo);
+        return this.service.updateBuyer(id, first_name, last_name, email, telephone);
     }
 
     @DeleteMapping("/remove/{id}")

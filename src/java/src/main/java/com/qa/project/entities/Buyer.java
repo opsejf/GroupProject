@@ -12,51 +12,51 @@ public class Buyer {
     @GeneratedValue
     Integer id;
 
-    @Column(name = "firstName", nullable = false)
-    String firstName;
+    @Column(name = "first_name", nullable = false)
+    String first_name;
 
-    @Column(name = "lastName", nullable = false)
-    String lastName;
+    @Column(name = "last_name", nullable = false)
+    String last_name;
 
     @Column(name = "email", nullable = false)
     String email;
 
-    @Column(name = "mobileNo", nullable = false)
-    String mobileNo;
+    @Column(name = "telephone", nullable = false)
+    String telephone;
 
 
 
 
-    public Buyer(Integer id, String firstName, String lastName, String email, String mobileNo){
+    public Buyer(Integer id, String first_name, String last_name, String email, String telephone){
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
-        this.mobileNo = mobileNo;
+        this.telephone = telephone;
     }
 
-    public Buyer(String firstName, String lastName, String email, String mobileNo){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Buyer(String first_name, String last_name, String email, String telephone){
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
-        this.mobileNo = mobileNo;
+        this.telephone = telephone;
     }
     public Buyer(){}
 
-    public Integer getId(){
-        return id;
-    }
+//    public Integer getId(){
+//        return id;
+//    }
     public String getFirstName(){
-        return firstName;
+        return first_name;
     }
-    public void setFirstName(String firstName){
-        this.firstName = firstName;
+    public void setFirstName(String first_name){
+        this.first_name = first_name;
     }
     public String getLastName(){
-        return lastName;
+        return last_name;
     }
-    public void setLastName(String lastName){
-        this.lastName = lastName;
+    public void setLastName(String last_name){
+        this.last_name = last_name;
     }
     public String getEmail(){
         return email;
@@ -64,10 +64,10 @@ public class Buyer {
     public void setEmail(String email){
         this.email = email;
     }
-    public String getMobileNo(){
-        return mobileNo;
+    public String getTelephone(){
+        return telephone;
     }
-    public void setMobileNo(String mobileNo){
-        this.mobileNo = mobileNo;
+    public void setTelephone(String telephone){
+        this.telephone = telephone;
     }
 }
