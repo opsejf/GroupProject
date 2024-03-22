@@ -1,26 +1,48 @@
 package com.qa.project.rest;
 
 import com.qa.project.entities.Seller;
-import com.qa.project.repos.SellerRepos;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.qa.project.services.SellerService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
+@RequestMapping("/api/sellers")
 public class SellerController {
-    @Autowired
-    private SellerRepos sellerRepository;
+    private final SellerService service;
 
-    @GetMapping
-    public Iterable findAll() {
-        return sellerRepository.findAll();
+    public SellerController(SellerService service) {
+        this.service = service;
     }
 
-    @GetMapping("/{id]")
-    public Seller findSeller(@PathVariable long id) {
-        return sellerRepository.findById(id)
-                .orElseThrow(SellerNotFoundException::new);
-        sellerRepository.deleteById(id);
+    @GetMapping("/getAll")
+    public List<Seller> getAll() {
+        return this.service.getAll();
+    }
+
+    @GetMapping("/getSeller")
+    public Seller getSeller(int id) {
+        return this.service.getSeller(id);
+    }
+
+    @PostMapping("/create")
+    public Seller createSeller(@RequestBody Seller seller) {
+        return this.service.createSeller(seller);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public Seller removeSeller(@PathVariable int id) {
+        return this.service.removeSeller(id);
+    }
+
+    @PatchMapping("/update/{id}")
+    public Seller updateSeller(@PathVariable int id,
+                               @RequestParam(required = false) String firstName,
+                               @RequestParam(required = false) String lastName,
+                               @RequestParam(required = false) String address,
+                               @RequestParam(required = false) String postCode,
+                               @RequestParam(required = false) String telephone) {
+        return this.service.updateSeller(id, firstName, lastName, address, postCode, telephone);
     }
 }
