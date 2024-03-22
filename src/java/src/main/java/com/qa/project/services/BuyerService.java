@@ -4,10 +4,12 @@ import com.qa.project.entities.Buyer;
 import com.qa.project.repos.BuyerRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class BuyerService {
 
+    private final List<Buyer> buyers = new ArrayList<>();
     private BuyerRepo repo;
 
     public BuyerService(BuyerRepo repo) {
@@ -15,7 +17,7 @@ public class BuyerService {
     }
 
     public List<Buyer> getAll() {
-        return this.repo.findAll();
+        return this.buyers;
     }
     public Buyer get(int id) {
         return this.repo.findById(id).get();
@@ -36,9 +38,9 @@ public class BuyerService {
         return this.repo.save(updatedBuyer);
     }
 
-    public Buyer removePerson(int id) {
-        Buyer removedBuyer = this.get(id);
+    public Buyer removeBuyer(int id) {
+        Buyer removed = this.get(id);
         this.repo.deleteById(id);
-        return removedBuyer;
+       return removed;
     }
 }

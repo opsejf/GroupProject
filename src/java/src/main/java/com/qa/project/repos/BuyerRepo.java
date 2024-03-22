@@ -11,10 +11,4 @@ import java.util.List;
 @Repository
 public interface BuyerRepo extends JpaRepository<Buyer, Integer> {
 
-    @GetMapping("/getAll")
-    public List<Buyer> getAll() { return this.service.getAll(); }
-
-
-    @GetMapping("/get/{id}")
-    public Buyer get(@PathVariable int id) { };
 }
