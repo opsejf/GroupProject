@@ -17,7 +17,7 @@ public class BuyerService {
     }
 
     public List<Buyer> getAll() {
-        return this.buyers;
+        return this.repo.findAll();
     }
     public Buyer get(int id) {
         return this.repo.findById(id).get();
@@ -27,13 +27,13 @@ public class BuyerService {
         return this.repo.save(buyer);
     }
 
-    public Buyer updateBuyer(Integer id, String firstName, String lastName, String email, String mobileNo) {
-        Buyer updatedBuyer = this.get(id);
+    public Buyer updateBuyer(Integer id, String firstName, String lastName, String email, String telephone) {
+        Buyer updatedBuyer = this.repo.findById(id).get();
 
         if (firstName != null) updatedBuyer.setFirstName(firstName);
         if (lastName != null) updatedBuyer.setLastName(lastName);
         if (email != null) updatedBuyer.setEmail(email);
-        if(mobileNo != null) updatedBuyer.setMobileNo(mobileNo);
+        if(telephone != null) updatedBuyer.setTelephone(telephone);
 
         return this.repo.save(updatedBuyer);
     }
