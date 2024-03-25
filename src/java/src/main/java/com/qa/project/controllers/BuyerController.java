@@ -30,7 +30,7 @@ public class BuyerController {
         return this.service.createBuyer(buyer);
     }
 
-    @PatchMapping("/update-buyer")
+    @PatchMapping("/update-buyer/{id}")
     public Buyer updateBuyer(@PathVariable int id,
                              @RequestParam(required = false) String first_name,
                              @RequestParam(required = false) String last_name,

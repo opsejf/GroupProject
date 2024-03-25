@@ -16,47 +16,18 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="9f8a542a-75a6-43b9-95cc-af5a5511c412">
-      <console name="Connection" type="STANDARD" schema="wrongmove" session="Main"><![CDATA[SELECT * FROM buyer;
-
-INSERT INTO buyer (first_name, last_name, email, telephone)
-VALUES
-('Sarah', 'Smith', 'sarah.smith@gmail.com', '07562946283'),
-('Bob', 'Grant', 'bob.grant@gmail.com', '07354678982'),
-('Kate', 'Sanders', 'kate.sanders@gmail.com', '07394517592'),
-('Niall', 'Anderson', 'niall123@hotmail.com', '07561325497'),
-('Monica', 'Harrison', 'monicaharrison@outlook.com', '07364583663'),
-('Steve', 'Barkley', 'stevedog@gmail.com', '07586973614'),
-('Gregg', 'Schmitt', 'gregg9080@outlook.com', '07883364759'),
-('Harry', 'Plant', 'plantharry56@gmail.com', '07836471922'),
-('Henry', 'David', 'henry.david321@gmail.com', '07869936210'),
-('Jamie', 'Baker', 'jamie.baker345@outlook.com', '07883647192'),
-('Alice', 'Scott', 'alice123scott@gmail.com', '07466244435'),
-('Emily', 'Kay', 'emilykay7834@gmail.com', '07117493776'),
-('Frank', 'Overton', 'frankieoverton@hotmail.com', '07348562713'),
-('Kayleigh', 'Rogan', 'kayleighrogan123@gmail.com', '07846295825'),
-('Wallace', 'Gordon', 'wallace123@gmail.com', '07418394628'),
-('Clifford', 'The Big Red Dog', 'cliff@big', '123'),
-('Max', 'The Dog', 'max@dog', '12345'),
-('harry', 'potter', 'l@hogrwa', '45678');
-
-SELECT * FROM buyer;
-
-SELECT * FROM buyer;
-
-SELECT * FROM buyer;]]></console>
+    <connection id="86ce0a7b-8486-45c5-a51e-4fb6a7185afc">
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="9f8a542a-75a6-43b9-95cc-af5a5511c412" object-ref="consoles/Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="9f8a542a-75a6-43b9-95cc-af5a5511c412" />
+    <connection id="86ce0a7b-8486-45c5-a51e-4fb6a7185afc" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -75,13 +46,13 @@ SELECT * FROM buyer;]]></console>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="9f8a542a-75a6-43b9-95cc-af5a5511c412" active="true" signed="true">
+      <connection id="86ce0a7b-8486-45c5-a51e-4fb6a7185afc" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="8.0" />
+          <database-version value="9999.0" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
