@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Min;
 public class Seller {
     @Id
     @GeneratedValue
-    @Column(name = "seller_id")
+    @Column(name = "seller_Id")
     private Long id;
 
     @Column(name = "firstName", nullable = false)
