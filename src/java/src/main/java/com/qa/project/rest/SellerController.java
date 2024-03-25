@@ -21,8 +21,8 @@ public class SellerController {
         return this.service.getAll();
     }
 
-    @GetMapping("/getSeller")
-    public Seller getSeller(int id) {
+    @GetMapping("/getSeller/{id}")
+    public Seller getSeller(@PathVariable int id) {
         return this.service.getSeller(id);
     }
 

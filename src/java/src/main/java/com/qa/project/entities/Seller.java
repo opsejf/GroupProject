@@ -11,7 +11,7 @@ public class Seller {
     @Id
     @GeneratedValue
     @Column(name = "seller_Id")
-    private int id;
+    private Long id;
 
     @Column(name = "firstName", nullable = false)
     private String firstName;
@@ -46,7 +46,7 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Seller(int id,
+    public Seller(Long id,
                 String firstName,
                   String lastName,
                   String address,
@@ -101,11 +101,11 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

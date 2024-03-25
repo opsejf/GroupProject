@@ -36,7 +36,7 @@ class SellerEntityTest {
 
     @Test
     void testSetId() {
-        seller.setId(2);
+        seller.setId(2L);
         assertEquals(2, seller.getId());
     }
 
