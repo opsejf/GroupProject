@@ -2,6 +2,8 @@ package com.qa.project.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 @Entity
 public class Buyer {
 
@@ -21,8 +23,8 @@ public class Buyer {
     @Column(name = "telephone", nullable = false)
     private String telephone;
 
-
-
+//    @Column(name = "properties", nullable = false)
+//    private ArrayList<Integer> properties;
 
 //    public Buyer(Integer id, String first_name, String last_name, String email, String telephone){
 //        this.id = id;
@@ -37,6 +39,7 @@ public class Buyer {
         this.last_name = last_name;
         this.email = email;
         this.telephone = telephone;
+        //this.properties = properties;
     }
     public Buyer(){}
 
@@ -73,4 +76,13 @@ public class Buyer {
     public void setTelephone(String telephone){
         this.telephone = telephone;
     }
+
+   // public ArrayList<Integer> getProperties(){
+   //     return properties;
+  //  }
+
+   // public void setProperties(ArrayList<Integer> properties){
+    //    this.properties = properties;
+   // }
+
 }
