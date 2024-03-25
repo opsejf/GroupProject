@@ -22,7 +22,8 @@ const DisplaySellers = (props) => {
                            throw new Error('Failed to fetch data');
                        }
                        const jsonData = await response.json();
-                       setBuyersData(jsonData);
+                       console.log(jsonData);
+                       setUserData(jsonData);
                    } catch (error) {
                        console.error('Error fetching data:', error);
                    }
