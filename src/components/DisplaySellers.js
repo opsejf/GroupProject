@@ -1,4 +1,4 @@
-git import { React } from 'react';
+import { React } from 'react';
 import '../styles/displayUsers.css';
 import data from '../database/Properties.json';
 
