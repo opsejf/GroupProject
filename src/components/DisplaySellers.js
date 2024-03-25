@@ -48,15 +48,17 @@ const DisplaySellers = (props) => {
                             <th>Forename </th>
                             <th>Surname </th>
                             <th className='smallScreen' >Email </th>
+                            <th>Telephone</th>
                         </tr>
                     </thead>
                     <tbody>
                         {userData.map((details) => {
                             return (
                                 <tr key={details.id}>
-                                    <td>{details.first_name}</td>
-                                    <td>{details.last_name}</td>
+                                    <td>{details.firstName}</td>
+                                    <td>{details.lastName}</td>
                                     <td className='smallScreen'>{details.email}</td>
+                                    <td>{details.telephone}</td>
                                 </tr>
                             )
                         })}
