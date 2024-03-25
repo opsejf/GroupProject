@@ -10,22 +10,19 @@ public class Buyer {
 
     @Id
     @GeneratedValue
-    Integer id;
+    private Integer id;
 
     @Column(name = "firstName", nullable = false)
-    String firstName;
+    private String firstName;
 
     @Column(name = "lastName", nullable = false)
-    String lastName;
+    private String lastName;
 
     @Column(name = "email", nullable = false)
-    String email;
+    private String email;
 
     @Column(name = "mobileNo", nullable = false)
-    String mobileNo;
-
-
-
+    private String mobileNo;
 
     public Buyer(Integer id, String firstName, String lastName, String email, String mobileNo){
         this.id = id;
