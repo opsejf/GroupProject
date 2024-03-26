@@ -3,18 +3,19 @@ package com.qa.project.rest;
 import com.qa.project.entities.Properties;
 import com.qa.project.entities.Status;
 import com.qa.project.entities.Type;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import services.PropertiesService;
+import com.qa.project.services.PropertiesService;
 
-import java.util.ArrayList;
 import java.util.List;
 @RequestMapping("/Properties")
 @RestController
 public class PropertiesController {
 
-    @Autowired
 
-    private final PropertiesService service;
+
+    @Autowired
+    private PropertiesService service;
     public PropertiesController(PropertiesService service){
         this.service = service;
     }
@@ -40,42 +41,36 @@ public class PropertiesController {
          return this.service.getAll();
    }
     @GetMapping("/getProperties/{id}")
-    public Properties getProperties(@PathVariable("id") int id){
-        return this.service.getProperties(id);
+    public Properties getProperties(@PathVariable int id){
+        return this.service.get(id);
     }
     @PostMapping("/create-property")
-    public List<Properties> createProperties(@RequestBody Properties properties){
-        this.service.add(properties);
+    public Properties createProperties(@RequestBody Properties properties){
+        //this.service.add(properties);
         //change this to create JSON description of result
-        return this.service.getAll();//this.service.size()-1);
+        return this.service.create(properties);//this.service.size()-1);
     }
 
-    @DeleteMapping("/delete")
-    public Properties removeProperties(@PathVariable("id") int id){
+    @DeleteMapping("/delete-property/{id}")
+    public Properties removeProperties(@PathVariable int id){
         //change this to return JSON confirmation of database record delete
-        return this.service.removeProperties(id);
+        return this.service.remove(id);
     }
 
 
-    @PatchMapping("/update/{id}")
-    public Properties updateProperties (@PathVariable int id, @RequestParam(required = false) String address, @RequestParam (required = false) String postcode,
+    @PatchMapping("/update-property/{id}")
+    public Properties update (@PathVariable int id, @RequestParam(required = false) String address, @RequestParam (required = false) String postcode,
                                         @RequestParam(required = false) Type type, @RequestParam Integer bedrooms, @RequestParam Integer bathrooms,
-                                        boolean garden, Status status, Float price, String thumbnail, String description){
-        Properties toUpdate = this.service.get(id);
-        if(address != null) toUpdate.setAddress(address);
-        if(postcode != null) toUpdate.setPostcode(postcode);
-        if(type != null) toUpdate.setType();
-        if(bedrooms != null) toUpdate.setBedrooms();
-        if(bathrooms!= null) toUpdate.setBathrooms();
-        if(status != null) toUpdate.setStatus ();
-        if (price != null)  toUpdate.setPrice(); // test to see if price < 0 still work
-        if (description != null)  toUpdate.setPrice();
-        if (thumbnail != null)  toUpdate.setThumbnail();
+                                        boolean garden, Status status, Float price, String thumbnail, String description, String img2, String img3,
+                                        String img4, String img5, String img6, String img7, String img8, String img9){
+
+       // if (thumbnail != null)  toUpdate.setThumbnail();
 
 
-        return this.service.updateProperties(id, address, postcode,
+        return this.service.update(id, address, postcode,
                 type, bedrooms, bathrooms,
-        garden,status, price,thumbnail, description);
+        garden,status, price,thumbnail, description,
+                img2, img3, img4, img5, img6, img7, img8, img9);
     }
 
 
