@@ -1,4 +1,3 @@
-import { React } from 'react';
 import { React, useState, useEffect } from 'react';
 import '../styles/displayUsers.css';
 import data from '../database/Properties.json';
