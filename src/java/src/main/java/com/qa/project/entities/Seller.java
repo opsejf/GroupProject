@@ -6,12 +6,12 @@ import jakarta.validation.constraints.Min;
 
 
 @Entity
-@Table(name = "sellers")
+//@Table(name = "sellers")
 public class Seller {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id")
+    private long id;
 
     @Column(name = "firstName", nullable = false)
     private String firstName;
@@ -46,7 +46,7 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Seller(Long id,
+    public Seller(long id,
                 String firstName,
                   String lastName,
                   String address,
@@ -101,11 +101,11 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 }
