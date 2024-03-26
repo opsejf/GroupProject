@@ -12,6 +12,8 @@ import java.util.List;
 @RestController
 public class PropertiesController {
 
+    @Autowired
+
     private final PropertiesService service;
     public PropertiesController(PropertiesService service){
         this.service = service;
@@ -39,9 +41,9 @@ public class PropertiesController {
    }
     @GetMapping("/getProperties/{id}")
     public Properties getProperties(@PathVariable("id") int id){
-        return this.service.get(id);
+        return this.service.getProperties(id);
     }
-    @PostMapping("/create")
+    @PostMapping("/create-property")
     public List<Properties> createProperties(@RequestBody Properties properties){
         this.service.add(properties);
         //change this to create JSON description of result
@@ -51,7 +53,7 @@ public class PropertiesController {
     @DeleteMapping("/delete")
     public Properties removeProperties(@PathVariable("id") int id){
         //change this to return JSON confirmation of database record delete
-        return this.service.remove(id);
+        return this.service.removeProperties(id);
     }
 
 
@@ -71,7 +73,7 @@ public class PropertiesController {
         if (thumbnail != null)  toUpdate.setThumbnail();
 
 
-        return this.service.update(id, address, postcode,
+        return this.service.updateProperties(id, address, postcode,
                 type, bedrooms, bathrooms,
         garden,status, price,thumbnail, description);
     }
