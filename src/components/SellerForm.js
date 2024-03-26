@@ -28,7 +28,7 @@ export default function (props){
     
 
 
-        fetch('http://localhost:8000/sellers', {
+        fetch('http://localhost:8080/api/sellers/create', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
