@@ -1,4 +1,4 @@
-import '../styles/form.css';
+import '../styles/signIn.css';
 import React, { useState } from 'react';
 import Properties from '../database/Properties.json';
 
@@ -6,12 +6,6 @@ import Properties from '../database/Properties.json';
 
 export default function(props){
 
-    // setting functions to store data inputted in form
-
-    // const [email, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [telephone, setTelephone] = useState("");
 
     function handleSubmit(event){
         event.preventDefault();
@@ -48,18 +42,18 @@ export default function(props){
     return (
         // creating actual form
         <form id="form1">
-            <fieldset className="wrapper">
+            <fieldset className="wrapper-sign-in">
                 
-                    <legend className="title">Sign in</legend>
+                    <legend className="sign-in-title">Sign in</legend>
                     <br></br>
-                    <b className='labels'>Email or Username</b>
-                    <input className='fields' type='text'  name='email'  required="required"></input>
+                    <b className='sign-in-labels'>Email or Username</b>
+                    <input className='sign-in-fields' type='text'  name='email'  required="required"></input>
                     <br/>
                     
-                    <b className='labels'>Password</b>
-                    <input className='fields' type='password' name='lastName' required="required"></input>
+                    <b className='sign-in-labels'>Password</b>
+                    <input className='sign-in-fields' type='password' name='lastName' required="required"></input>
                     <br />
-                    <button className='submit' type="submit" form="form1">Sign in</button>
+                    <button className='submit-sign-in' type="submit" form="form1">Sign in</button>
                 
             </fieldset>
         </form>

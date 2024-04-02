@@ -1,6 +1,7 @@
 import { React } from 'react';
 import { useState } from 'react';
 import Properties from '../database/Properties.json';
+import SignIn from './signIn.js';
 import '../styles/form.css';
 
 
@@ -8,15 +9,22 @@ export default () => {
 
     let [address, setAddress] = useState("");
     let [description, setDescription] = useState("");
-    // let [city, setCity] = useState();
     let [postCode, setPostCode] = useState();
     let [bathroom, setBathroom] = useState();
     let [bedroom, setBedroom] = useState();
     let [garden, setGarden] = useState();
     let [price, setPrice] = useState();
     let [type, setType] = useState();
+    const [token, setToken] = useState();
+
+
+    if(!token) {
+        return <SignIn setToken={setToken}/>
+      }   
 
     function onSubmit() {
+
+        
 
         const options = {
             timeZone : "Europe/London",
