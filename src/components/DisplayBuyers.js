@@ -16,7 +16,7 @@ const DisplayBuyers = (props) => {
                        }
                        const jsonData = await response.json();
                        console.log(jsonData);
-                       setUserData(jsonData);
+                       setBuyerData(jsonData);
                    } catch (error) {
                        console.error('Error fetching data:', error);
                    }
