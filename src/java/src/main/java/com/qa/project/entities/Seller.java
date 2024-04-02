@@ -20,11 +20,8 @@ public class Seller {
 
     private String lastName;
 
-    @Column(name = "address", nullable = false, unique = true)
-    private String address;
-
-    @Column(name = "postcode", nullable = false, unique = true)
-    private String postCode;
+    @Column(name = "email", nullable = false)
+    private String email;
 
     @Column(name = "telephone", nullable = false, unique = true)
     private String telephone;
@@ -36,28 +33,24 @@ public class Seller {
 
     public Seller(        String firstName,
                           String lastName,
-                          String address,
-                          String postCode,
+                          String email,
                           String telephone) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
-        this.postCode = postCode;
+        this.email = email;
         this.telephone = telephone;
     }
 
     public Seller(Long id,
                 String firstName,
                   String lastName,
-                  String address,
-                  String postCode,
+                  String email,
                   String telephone) {
         super();
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
-        this.postCode = postCode;
+        this.email = email;
         this.telephone = telephone;
     }
 
@@ -77,20 +70,12 @@ public class Seller {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTelephone() {

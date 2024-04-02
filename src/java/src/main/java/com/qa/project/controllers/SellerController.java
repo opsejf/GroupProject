@@ -1,4 +1,4 @@
-package com.qa.project.rest;
+package com.qa.project.controllers;
 
 import com.qa.project.entities.Seller;
 import com.qa.project.services.SellerService;
@@ -8,41 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sellers")
 public class SellerController {
-    private final SellerService service;
+    private final SellerService sService;
 
     public SellerController(SellerService service) {
-        this.service = service;
+        this.sService = service;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/sellers")
     public List<Seller> getAll() {
-        return this.service.getAll();
+        return this.sService.getAll();
     }
 
-    @GetMapping("/getSeller/{id}")
+    @GetMapping("/seller/{id}")
     public Seller getSeller(@PathVariable int id) {
-        return this.service.getSeller(id);
+        return this.sService.getSeller(id);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create-seller")
     public Seller createSeller(@RequestBody Seller seller) {
-        return this.service.createSeller(seller);
+        return this.sService.createSeller(seller);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove-seller/{id}")
     public Seller removeSeller(@PathVariable int id) {
-        return this.service.removeSeller(id);
+        return this.sService.removeSeller(id);
     }
 
-    @PatchMapping("/update/{id}")
+    @PatchMapping("/update-seller/{id}")
     public Seller updateSeller(@PathVariable int id,
                                @RequestParam(required = false) String firstName,
                                @RequestParam(required = false) String lastName,
-                               @RequestParam(required = false) String address,
-                               @RequestParam(required = false) String postCode,
+                               @RequestParam(required = false) String email,
                                @RequestParam(required = false) String telephone) {
-        return this.service.updateSeller(id, firstName, lastName, address, postCode, telephone);
+        return this.sService.updateSeller(id, firstName, lastName, email, telephone);
     }
 }

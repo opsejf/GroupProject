@@ -1,19 +1,16 @@
 package com.qa.project.services;
 
 import com.qa.project.entities.Seller;
-import com.qa.project.repos.SellerRepos;
-import io.swagger.v3.oas.annotations.servers.Server;
+import com.qa.project.repos.SellerRepo;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SellerService {
-    private final SellerRepos repo;
+    private final SellerRepo repo;
 
-    public SellerService(SellerRepos repo) {
+    public SellerService(SellerRepo repo) {
         this.repo = repo;
     }
 
@@ -40,15 +37,13 @@ public class SellerService {
     public Seller updateSeller(int id,
                                String firstName,
                                String lastName,
-                               String address,
-                               String postCode,
+                               String email,
                                String telephone) {
         Seller updatingSeller = this.repo.findById(id).get();
 
         if(firstName != null) updatingSeller.setFirstName(firstName);
         if(lastName != null) updatingSeller.setLastName(lastName);
-        if(address != null) updatingSeller.setAddress(address);
-        if(postCode != null) updatingSeller.setPostCode(postCode);
+        if(email != null) updatingSeller.setEmail(email);
         if(telephone != null) updatingSeller.setTelephone(telephone);
 
         return this.repo.save(updatingSeller);
