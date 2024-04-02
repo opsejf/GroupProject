@@ -1,3 +1,4 @@
+
 package com.qa.project.rest;
 
 import com.qa.project.entities.Seller;
@@ -25,6 +26,17 @@ public class SellerController {
     public Seller getSeller(@PathVariable int id) {
         return this.service.getSeller(id);
     }
+
+    @PostMapping("/authenticate")
+    public String authenticateSeller(@RequestParam String email, @RequestParam String password) {
+        String token = this.service.authenticateSeller(email, password);
+        if (token != null) {
+            return token;
+        } else {
+           return "Authentication failed";
+        }
+    }
+
 
     @PostMapping("/create")
     public Seller createSeller(@RequestBody Seller seller) {

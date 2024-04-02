@@ -53,4 +53,16 @@ public class SellerService {
 
         return this.repo.save(updatingSeller);
     }
+
+    public String authenticateSeller(String email, String password) {
+        Seller seller = repo.findByEmail(email);
+        if (seller != null && seller.getPassword().equals(password)) {
+            // Authentication successful
+            return "testToken123"; // Return a token upon successful authentication
+        } else {
+            // Authentication failed
+            return null;
+        }
+    }
+
 }

@@ -1,47 +1,93 @@
 DROP DATABASE wrongmove;
+
 CREATE DATABASE wrongmove;
 
 CREATE TABLE Buyer (
+
 id BIGINT NOT NULL AUTO_INCREMENT,
+
 first_name varchar(256),
+
 last_name varchar(256),
+
 email varchar(256),
+
 telephone varchar(256),
+
 PRIMARY KEY (id)
+
 );
 
 CREATE TABLE sellers(
+
 id BIGINT NOT NULL AUTO_INCREMENT,
+
 first_name varchar(256),
+
 last_name varchar(256),
+
 email varchar(256),
+
 telephone varchar(256),
-address varchar(256),
-postCode varchar(256),
+
+`password` varchar(256),
+
 PRIMARY KEY (id)
+
 );
 
+DROP TABLE properties;
+
 CREATE TABLE properties(
+
 id BIGINT NOT NULL AUTO_INCREMENT,
+
 address varchar(256),
+
 postcode varchar(256),
+
 `type` Enum( 'DETACHED', 'SEMI', 'APARTMENT' ),
+
 bedrooms INT NOT NULL,
+
 bathrooms INT NOT NULL,
+
 garden BOOLEAN,
+
 price FLOAT NOT NULL,
+
 `status` Enum( 'FORSALE', 'SOLD', 'WITHDRAWN' ),
-`description` varchar(2560), 
+
+`description` varchar(2560),
+
 thumbnail varchar(256),
-img2 varchar(256), 
-img3 varchar(256), 
-img4 varchar(256), 
-img5 varchar(256), 
-img6 varchar(256), 
-img7 varchar(256), 
-img8 varchar(256), 
+
+img2 varchar(256),
+
+img3 varchar(256),
+
+img4 varchar(256),
+
+img5 varchar(256),
+
+img6 varchar(256),
+
+img7 varchar(256),
+
+img8 varchar(256),
+
 img9 varchar(256),
+
+seller_id BIGINT NOT NULL,
+
+buyer_id BIGINT,
+
+FOREIGN KEY (seller_id) REFERENCES sellers(id),
+
+FOREIGN KEY (buyer_id) REFERENCES buyers(id),
+
 PRIMARY KEY (id)
+
 );
 
 INSERT INTO Buyer (first_name, last_name, email, telephone)
