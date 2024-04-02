@@ -30,36 +30,33 @@ public class SellerControllerMvcTest {
     @Autowired
     private ObjectMapper mapper;
 
-    public Seller createTestSeller (){
-        Seller newSeller = new Seller(
-                "Mock",
-                "Doe",
-                "email",
-                "123 main",
-                "M1",
-                "0832098");
-        return newSeller;
-    }
-
+    // Create seller test
     @Test
     void testCreate() throws Exception {
-        Seller newSeller = createTestSeller();
+        Seller newSeller = new Seller(1L,
+                "John",
+                "Doe",
+                "email",
+                "124 main",
+                "M1",
+                "0832098");
         String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
         RequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/sellers/create")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson);
 
         ResultMatcher checkStatusCode = MockMvcResultMatchers.status().isOk();
 
-        Seller resultTestSeller = new Seller(1L, "Mock", "Doe", "email", "123 main", "M1", "0832098");
+        Seller resultTestSeller = new Seller(1L, "John", "Doe", "email", "124 main", "M1", "0832098");
         String resultTestSellerAsJson = this.mapper.writeValueAsString(resultTestSeller);
         ResultMatcher checkBody = MockMvcResultMatchers.content().json(resultTestSellerAsJson);
 
         this.mvc.perform(mockRequest).andExpect(checkStatusCode).andExpect(checkBody);
     }
 
+    // Get seller by ID test
     @Test
     void testGetSeller() throws Exception {
-        Seller newSeller = new Seller(
+        Seller newSeller = new Seller(1L,
                 "Mock",
                 "Doe",
                 "email",
@@ -78,4 +75,15 @@ public class SellerControllerMvcTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson));
     }
+
+    // Get all sellers test
+
+
+    // Delete sellers test
+
+
+    // Patch sellers test
+
+
+
 }

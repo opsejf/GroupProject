@@ -6,11 +6,9 @@ import jakarta.validation.constraints.Min;
 
 
 @Entity
-@Table(name = "sellers")
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "seller_id")
     private long id;
 
     @Column(name = "first_name", nullable = false)
@@ -20,16 +18,16 @@ public class Seller {
 
     private String lastName;
 
-    @Column(name = "address", nullable = false, unique = true)
+    @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "postcode", nullable = false, unique = true)
+    @Column(name = "postcode", nullable = false)
     private String postCode;
 
-    @Column(name = "telephone", nullable = false, unique = true)
+    @Column(name = "telephone", nullable = false)
     private String telephone;
 
     // constructors
