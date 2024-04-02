@@ -34,6 +34,7 @@ public class SellerControllerMvcTest {
         Seller newSeller = new Seller(
                 "Mock",
                 "Doe",
+                "email",
                 "123 main",
                 "M1",
                 "0832098");
@@ -49,7 +50,7 @@ public class SellerControllerMvcTest {
 
         ResultMatcher checkStatusCode = MockMvcResultMatchers.status().isOk();
 
-        Seller resultTestSeller = new Seller(1L, "Mock", "Doe", "123 main", "M1", "0832098");
+        Seller resultTestSeller = new Seller(1L, "Mock", "Doe", "email", "123 main", "M1", "0832098");
         String resultTestSellerAsJson = this.mapper.writeValueAsString(resultTestSeller);
         ResultMatcher checkBody = MockMvcResultMatchers.content().json(resultTestSellerAsJson);
 
@@ -61,6 +62,7 @@ public class SellerControllerMvcTest {
         Seller newSeller = new Seller(
                 "Mock",
                 "Doe",
+                "email",
                 "123 main",
                 "M1",
                 "0832098");
@@ -68,7 +70,7 @@ public class SellerControllerMvcTest {
         RequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/sellers/create")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson);
 
-        Seller resultGetSellerTest = new Seller(1L, "Mock", "Doe", "123 main", "M1", "0832098");
+        Seller resultGetSellerTest = new Seller(1L, "Mock", "Doe", "email", "123 main", "M1", "0832098");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
         this.mvc.perform(mockRequest);

@@ -6,12 +6,12 @@ import jakarta.validation.constraints.Min;
 
 
 @Entity
-//@Table(name = "sellers")
+@Table(name = "sellers")
 public class Seller {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
-    private long id;
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "firstName", nullable = false)
     private String firstName;
@@ -22,6 +22,9 @@ public class Seller {
 
     @Column(name = "address", nullable = false, unique = true)
     private String address;
+
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
     @Column(name = "postcode", nullable = false, unique = true)
     private String postCode;
@@ -39,21 +42,24 @@ public class Seller {
 
     public Seller(        String firstName,
                           String lastName,
+                          String email,
                           String address,
                           String postCode,
                           String telephone,
                           String password) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.address = address;
         this.postCode = postCode;
         this.telephone = telephone;
         this.password = password;
     }
 
-    public Seller(long id,
+    public Seller(Long id,
                 String firstName,
                   String lastName,
+                  String email,
                   String address,
                   String postCode,
                   String telephone,
@@ -62,6 +68,7 @@ public class Seller {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.address = address;
         this.postCode = postCode;
         this.telephone = telephone;
@@ -108,16 +115,27 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public long getId() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getAuthentication(String email, String password) {
-        this.password = password;
-        return "testToken123";
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
