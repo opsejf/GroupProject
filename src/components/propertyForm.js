@@ -6,9 +6,9 @@ import '../styles/form.css';
 
 export default () => {
 
-    let [firstLine, setFirstLine] = useState("");
+    let [address, setAddress] = useState("");
     let [description, setDescription] = useState("");
-    let [city, setCity] = useState();
+    // let [city, setCity] = useState();
     let [postCode, setPostCode] = useState();
     let [bathroom, setBathroom] = useState();
     let [bedroom, setBedroom] = useState();
@@ -36,11 +36,11 @@ export default () => {
         let propertyLength = Properties.properties.length + 1
         let properties = {
             property_id: propertyLength,
-            "address": {
-                "firstLine": firstLine,
-                "city": city,
-                "postcode": postCode
-            },
+            
+            "address": address,
+            // "city": city,
+            "postcode": postCode,
+            
             "img": {
                 "thumbnail": "",
                 "img3": "",
@@ -82,22 +82,21 @@ export default () => {
             <form id="form1" onSubmit={onSubmit}>
                 <fieldset className='wrapper'>
                     <legend className='title'>Register Property</legend>
-                    <p>Address: </p>
-                    <b className='labels'>First Line: </b>
+                    <br/>
+                    <br/>
+
+                    
+                    <b className='labels'>Address: </b>
                     <br />
-                    <input className="fields" type="text" placeholder="First line of address" required onChange={event => setFirstLine(event.target.value)} name="firstLine" value={firstLine} />
+                    <input className="fields" type="text" placeholder="First line of address" required onChange={event => setAddress(event.target.value)} name="address" value={address} />
                     <br></br>
 
-                    <b className='labels'>City:</b>
-                    <br />
-                    <input className="fields" placeholder="Enter City" required name="city" onChange={event => setCity(event.target.value)} value={city} />
-                    <br></br>
+                    
 
                     <b className='labels'>Postcode:</b>
                     <br />
                     <input className="fields" placeholder="Enter a valid Postcode" required name="postcode" onChange={event => setPostCode(event.target.value)} value={postCode} />
                     <br></br>
-                    <br />
                     
                     <b className='labels'>Price: </b>
                     <br/>
@@ -111,7 +110,9 @@ export default () => {
 
 
                     <b className='labels'>Type: </b>
-                    <input className="fields" required placeholder="Property type" type="search" list="typeList" onChange={event => setType(event.target.value)} value={type} />*
+                    <br/>
+
+                    <input className="fields" required placeholder="Property type" type="search" list="typeList" onChange={event => setType(event.target.value)} value={type} />
                     <datalist id="typeList">
                         <option>Detachted</option>
                         <option>Semi-detached</option>
@@ -122,6 +123,8 @@ export default () => {
                     <br></br>
 
                     <b className='labels'>Bedrooms: </b>
+                    <br/>
+
                     <input className="fields" placeholder="Enter No of bedrooms" required name="bedrooms" onChange={event => setBedroom(event.target.value)} value={bedroom} />
                     <br></br>
 
@@ -130,12 +133,13 @@ export default () => {
                     <input className="fields" placeholder="Enter No of bathrooms" required name="bathrooms" onChange={event => setBathroom(event.target.value)} value={bathroom} />
                     <br></br>
 
-                    <b className='labels'>Garden: </b>
-                    <br />
-                    <input className="fields" type="checkbox" name="garden" onClick={event => setGarden(event.target.checked)} />
+                    <b className='labels'>Garden: &nbsp; <input className="fields" type="checkbox" name="garden" onClick={event => setGarden(event.target.checked)} /></b>
+                    
                     <br></br>
+                    <br/>
 
-                    <button type="submit">Register</button>
+
+                    <button type="submit"><b>Register</b></button>
                     <br />
                 </fieldset>
             </form>
