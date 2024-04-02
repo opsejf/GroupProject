@@ -15,6 +15,20 @@ export default () => {
     let [garden, setGarden] = useState();
     let [price, setPrice] = useState();
     let [type, setType] = useState();
+    let [thumbnail, setThumbnail] = useState();
+    let [img2, setImg2] = useState();
+    let [img3, setImg3] = useState();
+    let [img4, setImg4] = useState();
+    let [img5, setImg5] = useState();
+    let [img6, setImg6] = useState();
+    let [img7, setImg7] = useState();
+    let [img8, setImg8] = useState();
+    let [img9, setImg9] = useState();
+    let [status, setStatus] = useState();
+
+
+
+
 
     function onSubmit() {
 
@@ -38,23 +52,20 @@ export default () => {
             property_id: propertyLength,
             
             "address": address,
-            // "city": city,
             "postcode": postCode,
-            
-            "img": {
-                "thumbnail": "",
-                "img3": "",
-                "img4": "",
-                "img2": "",
-                "img5": "",
-                "img6": "",
-                "img7": "",
-                "img8": "",
-                "img9": ""
-            },
+            "thumbnail": thumbnail,
+            "img2": img2,
+            "img3": img3,
+            "img4": img4,
+            "img5": img5,
+            "img6": img6,
+            "img7": img7,
+            "img8": img8,
+            "img9": img9,
             "description": description,
             "price": price,
             "type": type,
+            "status": status,
             "bedrooms": bedroom,
             "bathrooms": bathroom,
             "garden": garden,
@@ -111,14 +122,22 @@ export default () => {
 
                     <b className='labels'>Type: </b>
                     <br/>
+                    <select className="fields" required placeholder="Property type" value={type} >
+                        <option>DETACHED</option>
+                        <option>SEMI</option>
+                        <option>APARTMENT</option>
+                    </select>
+                    <br></br>
 
-                    <input className="fields" required placeholder="Property type" type="search" list="typeList" onChange={event => setType(event.target.value)} value={type} />
+                    <b className='labels'>Status:</b>
+                    <select className="fields" required placeholder="Property status" value={status} >
+                        <option>FOR SALE</option>
+                        <option>SOLD</option>
+                        <option>WITHDRAWN</option>
+                    </select>
+                        
                     <datalist id="typeList">
-                        <option>Detachted</option>
-                        <option>Semi-detached</option>
-                        <otion>Terrace</otion>
-                        <option>Flat</option>
-                        <option>Bungalow</option>
+                        
                     </datalist>
                     <br></br>
 
@@ -137,6 +156,34 @@ export default () => {
                     
                     <br></br>
                     <br/>
+
+                    <b className='labels' ><span>Thumbnail Image: </span><input className="fields" placeholder="" required name=""  value={thumbnail} type='file' /></b>
+                    
+                    <br></br>
+
+                    <b className='labels' ><span>Image 2: </span><input className="fields" placeholder="" required name=""  value={img2} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 3: <input className="fields" placeholder="" required name=""  value={img3} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 4: <input className="fields" placeholder="" required name=""  value={img4} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 5: <input className="fields" placeholder="" required name=""  value={img5} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 6: <input className="fields" placeholder="" required name=""  value={img6} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 7: <input className="fields" placeholder="" required name=""  value={img7} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 8: <input className="fields" placeholder="" required name=""  value={img8} type='file'/></b>                  
+                    <br></br>
+
+                    <b className='labels'>Image 9: <input className="fields" placeholder="" required name=""  value={img9} type='file'/></b>                  
+                    <br></br>
 
 
                     <button type="submit"><b>Register</b></button>

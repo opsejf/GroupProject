@@ -23,7 +23,14 @@
 
 .labels {
     color: black;
+    /* display: block;
+    position: relative; */
 }
+
+/* .labels span {
+    position: absolute;
+    left: 3px;
+} */
 
 .fields {
     background-color: white;
@@ -31,6 +38,7 @@
     border-width: 1px;
     border-radius: 10px;
     padding-left: 1%;
+    /* margin-left: 120px; */
 }
 
 
