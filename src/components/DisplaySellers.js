@@ -10,7 +10,7 @@ const DisplaySellers = (props) => {
         useEffect(() => {
                const fetchData = async () => {
                    try {
-                       const response = await fetch('http://localhost:8080/sellers');
+                       const response = await fetch('http://localhost:8080/api/sellers/getAll');
                        if (!response.ok) {
                            throw new Error('Failed to fetch data');
                        }

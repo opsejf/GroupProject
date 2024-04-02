@@ -7,40 +7,42 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @RestController
+@RequestMapping("/api/sellers")
 public class SellerController {
-    private final SellerService sService;
+    private final SellerService service;
 
     public SellerController(SellerService service) {
-        this.sService = service;
+        this.service = service;
     }
 
-    @GetMapping("/sellers")
+    @GetMapping("/getAll")
     public List<Seller> getAll() {
-        return this.sService.getAll();
+        return this.service.getAll();
     }
 
-    @GetMapping("/seller/{id}")
+    @GetMapping("/getSeller/{id}")
     public Seller getSeller(@PathVariable int id) {
-        return this.sService.getSeller(id);
+        return this.service.getSeller(id);
     }
 
-    @PostMapping("/create-seller")
+    @PostMapping("/create")
     public Seller createSeller(@RequestBody Seller seller) {
-        return this.sService.createSeller(seller);
+        return this.service.createSeller(seller);
     }
 
-    @DeleteMapping("/remove-seller/{id}")
+    @DeleteMapping("/remove/{id}")
     public Seller removeSeller(@PathVariable int id) {
-        return this.sService.removeSeller(id);
+        return this.service.removeSeller(id);
     }
 
-    @PatchMapping("/update-seller/{id}")
+    @PatchMapping("/update/{id}")
     public Seller updateSeller(@PathVariable int id,
                                @RequestParam(required = false) String firstName,
                                @RequestParam(required = false) String lastName,
                                @RequestParam(required = false) String email,
                                @RequestParam(required = false) String telephone) {
-        return this.sService.updateSeller(id, firstName, lastName, email, telephone);
+        return this.service.updateSeller(id, firstName, lastName, email, telephone);
     }
 }
