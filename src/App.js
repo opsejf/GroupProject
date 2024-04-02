@@ -15,6 +15,7 @@ import AboutUs from './components/aboutUs.js';
 
 
 import DisplaySellers from './components/DisplaySellers.js'
+import DisplayBuyers from './components/DisplayBuyers.js'
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
             />
             <Route
             path="register-buyer"
-            element= {[<Buyerform />, <DisplaySellers user="Buyer"/>]}
+            element= {[<Buyerform/>, <DisplayBuyers user="Buyer"/>]}
             />
             <Route
             path="properties/:query"

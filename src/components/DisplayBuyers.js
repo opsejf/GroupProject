@@ -2,15 +2,15 @@ import { React, useState, useEffect } from 'react';
 import '../styles/displayUsers.css';
 import data from '../database/Properties.json';
 
-const DisplaySellers = (props) => {
-    const [sellerData, setSellerData] = useState([]);
+const DisplayBuyers = (props) => {
+    const [buyerData, setBuyerData] = useState([]);
 
     // Checking which page we are on to display either buyer or seller
 
         useEffect(() => {
                const fetchData = async () => {
                    try {
-                       const response = await fetch('http://localhost:8080/sellers');
+                       const response = await fetch('http://localhost:8080/buyers');
                        if (!response.ok) {
                            throw new Error('Failed to fetch data');
                        }
@@ -25,15 +25,14 @@ const DisplaySellers = (props) => {
                fetchData();
         }, []);
 
-
     return (
         <div className="total">
-            
+
             <h1>Find A {props.user}</h1>
             <br />
 
             <div className = "scroll">
-                <table name="sellerData">
+                <table name="buyerData">
                     <thead>
                         <tr className='headingHover'>
                             {/* <th>{props.user}: </th> */}
@@ -44,7 +43,7 @@ const DisplaySellers = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {sellerData.map((details) => {
+                        {buyerData.map((details) => {
                             return (
                                 <tr key={details.id}>
                                     <td>{details.firstName}</td>
@@ -57,9 +56,9 @@ const DisplaySellers = (props) => {
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
     );
 }
 
-export default DisplaySellers;
+export default DisplayBuyers;
