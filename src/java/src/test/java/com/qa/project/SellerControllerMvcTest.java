@@ -1,8 +1,7 @@
-package com.qa.project.rest;
+package com.qa.project;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.project.entities.Seller;
-import jakarta.persistence.GeneratedValue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -10,15 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import javax.print.attribute.standard.Media;
-import javax.xml.transform.Result;
-
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,16 +23,18 @@ public class SellerControllerMvcTest {
     @Autowired
     private ObjectMapper mapper;
 
+    // create seller
+    Seller newSeller = new Seller(1L,
+            "John",
+            "Doe",
+            "email",
+            "124 main",
+            "M1",
+            "0832098");
+
     // Create seller test
     @Test
     void testCreate() throws Exception {
-        Seller newSeller = new Seller(1L,
-                "John",
-                "Doe",
-                "email",
-                "124 main",
-                "M1",
-                "0832098");
         String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
         RequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/sellers/create")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson);
@@ -56,18 +51,11 @@ public class SellerControllerMvcTest {
     // Get seller by ID test
     @Test
     void testGetSeller() throws Exception {
-        Seller newSeller = new Seller(1L,
-                "Mock",
-                "Doe",
-                "email",
-                "123 main",
-                "M1",
-                "0832098");
         String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
         RequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/sellers/create")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson);
 
-        Seller resultGetSellerTest = new Seller(1L, "Mock", "Doe", "email", "123 main", "M1", "0832098");
+        Seller resultGetSellerTest = new Seller(1L, "John", "Doe", "email", "124 main", "M1", "0832098");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
         this.mvc.perform(mockRequest);
@@ -77,7 +65,14 @@ public class SellerControllerMvcTest {
     }
 
     // Get all sellers test
+    @Test
+    void testGetAllSellers() throws Exception {
+        String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
+        RequestBuilder mockRequest = MockMvcRequestBuilders.get("/api/sellers/getAll")
+                .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson);
 
+
+    }
 
     // Delete sellers test
 

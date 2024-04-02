@@ -6,9 +6,11 @@ import jakarta.validation.constraints.Min;
 
 
 @Entity
+//@Table(name = "sellers")
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id")
     private long id;
 
     @Column(name = "first_name", nullable = false)
@@ -49,7 +51,7 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Seller(Long id,
+    public Seller(long id,
                 String firstName,
                   String lastName,
                   String email,
@@ -106,11 +108,11 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
