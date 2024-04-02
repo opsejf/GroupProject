@@ -9,19 +9,22 @@ import jakarta.validation.constraints.Min;
 @Table(name = "sellers")
 public class Seller {
     @Id
-    @GeneratedValue
-    @Column(name = "seller_Id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "seller_id")
+    private long id;
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "last_name", nullable = false)
 
     private String lastName;
 
     @Column(name = "address", nullable = false, unique = true)
     private String address;
+
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
     @Column(name = "postcode", nullable = false, unique = true)
     private String postCode;
@@ -36,11 +39,13 @@ public class Seller {
 
     public Seller(        String firstName,
                           String lastName,
+                          String email,
                           String address,
                           String postCode,
                           String telephone) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.address = address;
         this.postCode = postCode;
         this.telephone = telephone;
@@ -49,6 +54,7 @@ public class Seller {
     public Seller(Long id,
                 String firstName,
                   String lastName,
+                  String email,
                   String address,
                   String postCode,
                   String telephone) {
@@ -56,6 +62,7 @@ public class Seller {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.address = address;
         this.postCode = postCode;
         this.telephone = telephone;
@@ -107,5 +114,13 @@ public class Seller {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

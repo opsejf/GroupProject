@@ -41,8 +41,9 @@ public class SellerController {
                                @RequestParam(required = false) String firstName,
                                @RequestParam(required = false) String lastName,
                                @RequestParam(required = false) String address,
+                               @RequestParam(required = false) String email,
                                @RequestParam(required = false) String postCode,
                                @RequestParam(required = false) String telephone) {
-        return this.service.updateSeller(id, firstName, lastName, address, postCode, telephone);
+        return this.service.updateSeller(id, firstName, lastName, address, email, postCode, telephone);
     }
 }
