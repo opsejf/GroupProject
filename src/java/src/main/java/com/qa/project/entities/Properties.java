@@ -1,16 +1,13 @@
 package com.qa.project.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
 @Entity
 public class Properties {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String address;
@@ -25,7 +22,7 @@ public class Properties {
     @Column
     private boolean garden;
     @Column
-    private float price;
+    private int price;
     @Column
     private Status status;
     @Column
@@ -116,11 +113,11 @@ public class Properties {
     }
 
 
-    public float getPrice() {
+    public int getPrice() {
         return this.price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(int price) {
         this.price = this.price;
     }
 
@@ -219,6 +216,36 @@ public class Properties {
     }
 
 
+//    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, Float price, Status status, Seller mockSeller) {
+//        // Empty constructor required by JPA
+//    }
+//
+//    // Constructor with parameters
+//    public Properties(String address, String postcode, Type type, int bedrooms, int bathrooms,
+//                      boolean garden, float price, Status status, String description, String thumbnail,
+//                      String img2, String img3, String img4, String img5, String img6, String img7,
+//                      String img8, String img9) {
+//        this.address = address;
+//        this.postcode = postcode;
+//        this.type = type;
+//        this.bedrooms = bedrooms;
+//        this.bathrooms = bathrooms;
+//        this.garden = garden;
+//        this.price = price;
+//        this.status = status;
+//        this.description = description;
+//        this.thumbnail = thumbnail;
+//        this.img2 = img2;
+//        this.img3 = img3;
+//        this.img4 = img4;
+//        this.img5 = img5;
+//        this.img6 = img6;
+//        this.img7 = img7;
+//        this.img8 = img8;
+//        this.img9 = img9;
+//    }
+
+
 
 }
 
@@ -226,6 +253,6 @@ public class Properties {
 
    
 
-
+//, Seller mockSeller, Buyer mockBuyer
 
 

@@ -4,7 +4,7 @@ import Properties from '../database/Properties.json';
 
 
 
-export default function(props){
+export default function(){
 
     // setting functions to store data inputted in form
 

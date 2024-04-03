@@ -45,7 +45,7 @@ public class PropertiesService{
 
     public Properties update (int id, String address, String postcode,
                               Type type, Integer bedrooms, Integer bathrooms,
-                              boolean garden, Status status, Float price, String thumbnail,
+                              boolean garden, Status status, int price, String thumbnail,
                               String description, String img2, String img3, String img4,
                               String img5, String img6, String img7, String img8, String img9){
         Properties toUpdate = this.repo.findById(id).get();
@@ -56,7 +56,7 @@ public class PropertiesService{
         if(bedrooms != null) toUpdate.setBedrooms(bedrooms);
         if(bathrooms!= null) toUpdate.setBathrooms(bathrooms);
         if(status != null) toUpdate.setStatus (status);
-        if (price != null)  toUpdate.setPrice(price); // test to see if price < 0 still work
+        if(price != 0)  toUpdate.setPrice(price); // test to see if price < 0 still work
         if (description != null)  toUpdate.setDescription(description);
         if (thumbnail != null)  toUpdate.setThumbnail(thumbnail);
         if (img2 != null)  toUpdate.setImg2(img2);

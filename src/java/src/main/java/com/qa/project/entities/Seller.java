@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Min;
 @Table(name = "sellers")
 public class Seller {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -20,19 +20,19 @@ public class Seller {
 
     private String lastName;
 
-    @Column(name = "address", nullable = false, unique = true)
-    private String address;
+//    @Column(name = "address", nullable = false, unique = true)
+//    private String address;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "postcode", nullable = false, unique = true)
-    private String postCode;
+//    @Column(name = "postcode", nullable = false, unique = true)
+//    private String postCode;
 
     @Column(name = "telephone", nullable = false, unique = true)
     private String telephone;
 
-    @Column(name = "password", nullable = false, unique = false)
+    @Column(name = "password", nullable = true, unique = false)
     private String password;
 
     // constructors
@@ -46,12 +46,13 @@ public class Seller {
                           String address,
                           String postCode,
                           String telephone,
-                          String password) {
+                          String password
+    ) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.address = address;
-        this.postCode = postCode;
+//        this.address = address;
+//        this.postCode = postCode;
         this.telephone = telephone;
         this.password = password;
     }
@@ -60,17 +61,18 @@ public class Seller {
                 String firstName,
                   String lastName,
                   String email,
-                  String address,
-                  String postCode,
+//                  String address,
+//                  String postCode,
                   String telephone,
-                  String password) {
+                  String password
+    ) {
         super();
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.address = address;
-        this.postCode = postCode;
+//        this.address = address;
+//        this.postCode = postCode;
         this.telephone = telephone;
         this.password = password;
     }
@@ -91,21 +93,21 @@ public class Seller {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
-    }
+//    public String getAddress() {
+//        return address;
+//    }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
 
-    public String getPostCode() {
-        return postCode;
-    }
+//    public String getPostCode() {
+//        return postCode;
+//    }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
-    }
+//    public void setPostCode(String postCode) {
+//        this.postCode = postCode;
+//    }
 
     public String getTelephone() {
         return telephone;

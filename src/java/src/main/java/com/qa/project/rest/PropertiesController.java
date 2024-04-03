@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.qa.project.services.PropertiesService;
 
 import java.util.List;
-@RequestMapping("/Properties")
+//@RequestMapping("/Properties")
 @RestController
 public class PropertiesController {
 
@@ -61,7 +61,7 @@ public class PropertiesController {
     @PatchMapping("/update-property/{id}")
     public Properties update (@PathVariable int id, @RequestParam(required = false) String address, @RequestParam (required = false) String postcode,
                                         @RequestParam(required = false) Type type, @RequestParam Integer bedrooms, @RequestParam Integer bathrooms,
-                                        boolean garden, Status status, Float price, String thumbnail, String description, String img2, String img3,
+                                        boolean garden, Status status, int price, String thumbnail, String description, String img2, String img3,
                                         String img4, String img5, String img6, String img7, String img8, String img9){
 
        // if (thumbnail != null)  toUpdate.setThumbnail();
