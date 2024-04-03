@@ -15,10 +15,10 @@ export default () => {
     let [garden, setGarden] = useState();
     let [price, setPrice] = useState();
     let [type, setType] = useState();
-    const [token, setToken] = useState();
+    const [token, setToken] = useState("");
 
-
-    if(!token) {
+    console.log(token);
+    if(!token.startsWith("test")) {
         return <SignIn setToken={setToken}/>
       }   
 
@@ -46,7 +46,6 @@ export default () => {
             property_id: propertyLength,
             
             "address": address,
-            // "city": city,
             "postcode": postCode,
             
             "img": {
