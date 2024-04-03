@@ -161,14 +161,14 @@ public class PropertiesTest {
 
     @Test
     public void testSetId() {
-        
+
         property.setId(2L);
         assertEquals(2L, property.getId());
     }
 
     @Test
     public void testSetAddress() {
-        
+
         String newAddress = "456 Park Ave";
         property.setAddress(newAddress);
         assertEquals(newAddress, property.getAddress());
@@ -176,7 +176,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetPostcode() {
-       
+
         String newPostcode = "67890";
         property.setPostcode(newPostcode);
         assertEquals(newPostcode, property.getPostcode());
@@ -184,7 +184,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetType() {
-        
+
         Type newType = Type.DETACHED;
         property.setType(newType);
         assertEquals(newType, property.getType());
@@ -192,7 +192,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetBedrooms() {
-        
+
         Integer newBedrooms = 4;
         property.setBedrooms(newBedrooms);
         assertEquals(newBedrooms, property.getBedrooms());
@@ -200,7 +200,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetBathrooms() {
-        
+
         Integer newBathrooms = 3;
         property.setBathrooms(newBathrooms);
         assertEquals(newBathrooms, property.getBathrooms());
@@ -209,7 +209,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetGarden() {
-        
+
         Boolean newGarden = false;
         property.setGarden(newGarden);
         assertEquals(newGarden, property.getGarden());
@@ -217,7 +217,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetPrice() {
-        
+
         Float newPrice = (float) 350000.00;
         property.setPrice(newPrice);
         assertEquals(newPrice, property.getPrice());
