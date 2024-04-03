@@ -149,6 +149,7 @@ import { React } from 'react';
 import { useState } from 'react';
 import Properties from '../database/Properties.json';
 import '../styles/form.css';
+import axios from "axios";
 
 
 export default () => {
@@ -221,19 +222,45 @@ export default () => {
             bedrooms: bedroom,
             bathrooms: bathroom,
             garden: garden
-//            timeUploaded: timeUploaded
         }
         console.log(propertyDataItem);
 
-        fetch("http://localhost:8080/create-property", {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(propertyDataItem)
-            })
+//        fetch("http://localhost:8080/create-property", {
+//            method: "post",
+//            headers: {
+//                'Accept': 'application/json',
+//                'Content-Type': 'application/json'
+//            },
+//            body: JSON.stringify(propertyDataItem)
+//            })
+
+        axios.post("http://localhost:8080/create-property",
+        {
+                    ID: id,
+                    address: address,
+                    postcode: postCode,
+                    thumbnail: thumbnail,
+                    img2: img2,
+                    img3: img3,
+                    img4: img4,
+                    img5: img5,
+                    img6: img6,
+                    img7: img7,
+                    img8: img8,
+                    img9: img9,
+                    description: description,
+                    price: intPrice,
+                    type: event.target.type.value,
+                    status: event.target.status.value,
+                    bedrooms: bedroom,
+                    bathrooms: bathroom,
+                    garden: garden
+                }
+        )
+
     }
+
+
 
     return (
         

@@ -216,13 +216,13 @@ public class Properties {
     }
 
 
-//    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, Float price, Status status, Seller mockSeller) {
+//    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, int price, Status status, Seller mockSeller) {
 //        // Empty constructor required by JPA
 //    }
 //
 //    // Constructor with parameters
 //    public Properties(String address, String postcode, Type type, int bedrooms, int bathrooms,
-//                      boolean garden, float price, Status status, String description, String thumbnail,
+//                      boolean garden, int price, Status status, String description, String thumbnail,
 //                      String img2, String img3, String img4, String img5, String img6, String img7,
 //                      String img8, String img9) {
 //        this.address = address;
