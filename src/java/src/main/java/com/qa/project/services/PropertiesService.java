@@ -1,6 +1,6 @@
 package com.qa.project.services;
 
-import com.qa.project.Repo.PropertiesRepo;
+import com.qa.project.repos.PropertiesRepo;
 import com.qa.project.entities.Properties;
 import com.qa.project.entities.Status;
 import com.qa.project.entities.Type;

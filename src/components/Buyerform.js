@@ -35,7 +35,7 @@ export default function(props){
 
         // sending new buyer details to be stored in database
 
-        fetch("http://localhost:8000/buyers", {
+        fetch("http://localhost:8080/create-buyer", {
         method: "post",
         headers: {
             'Accept': 'application/json',

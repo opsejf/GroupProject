@@ -49,8 +49,12 @@ public class Properties {
     private String img8;
     @Column
     private String img9;
+    private com.qa.project.entities.Seller Seller;
+    private com.qa.project.entities.Buyer Buyer;
 
-    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, Float price, Status status, Seller mockSeller) {
+    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms,
+                      String description, Boolean garden, Float price, String thumbnail, String img2, String img3, String img4,
+                      String img5, String img6, String img7, String img8, String img9, Status status, Seller mockSeller) {
         // Empty constructor required by JPA
     }
 
@@ -79,6 +83,7 @@ public class Properties {
         this.img9 = img9;
     }
 
+    //public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, String description, Boolean garden, Float price, Status status, com.qa.project.entities.Seller mockSeller) {
 
 
 
@@ -248,7 +253,21 @@ public class Properties {
     }
 
 
+    public Seller getSeller() {
+        return Seller;
+    }
 
+    public void setSeller(Seller seller) {
+        this.Seller = seller;
+    }
+
+    public Buyer getBuyer() {
+        return Buyer;
+    }
+
+    public void setBuyer(Buyer buyer) {
+        this.Buyer = buyer;
+    }
 }
 
    

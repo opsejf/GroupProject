@@ -1,4 +1,4 @@
-package com.qa.project.Repo;
+package com.qa.project.repos;
 
 import com.qa.project.entities.Properties;
 import org.springframework.data.jpa.repository.JpaRepository;
