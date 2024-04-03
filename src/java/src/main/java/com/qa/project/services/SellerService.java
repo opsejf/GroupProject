@@ -1,16 +1,19 @@
 package com.qa.project.services;
 
 import com.qa.project.entities.Seller;
-import com.qa.project.repos.SellerRepo;
+import com.qa.project.repos.SellerRepos;
+import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SellerService {
-    private final SellerRepo repo;
+    private final SellerRepos repo;
 
-    public SellerService(SellerRepo repo) {
+    public SellerService(SellerRepos repo) {
         this.repo = repo;
     }
 

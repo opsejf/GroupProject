@@ -13,17 +13,18 @@ public class Seller {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "last_name", nullable = false)
 
     private String lastName;
 
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "telephone", nullable = false, unique = true)
+
+    @Column(name = "telephone", nullable = false)
     private String telephone;
 
     // constructors
@@ -41,7 +42,7 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Seller(Long id,
+    public Seller(long id,
                 String firstName,
                   String lastName,
                   String email,
@@ -86,11 +87,11 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 }
