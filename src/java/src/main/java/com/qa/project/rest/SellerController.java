@@ -5,7 +5,6 @@ import com.qa.project.entities.Seller;
 import com.qa.project.services.SellerService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,9 +32,11 @@ public class SellerController {
         if (token != null) {
             return token;
         } else {
-           return "Authentication failed";
+            return "Authentication failed";
         }
     }
+
+
 
 
     @PostMapping("/create")

@@ -61,7 +61,7 @@ export default () => {
             "timeUploaded": timeUploaded
         }
 
-        postData('http://localhost:8000/properties', properties);
+        postData('http://localhost:8080/properties', properties);
     }
 
     // Function to be called for posting data to the json DB, takes paraments url and data (object)
