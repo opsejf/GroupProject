@@ -32,7 +32,7 @@ public class Seller {
     @Column(name = "telephone", nullable = false, unique = true)
     private String telephone;
 
-    @Column(name = "password", nullable = false, unique = false)
+    @Column(name = "password", nullable = true, unique = false)
     private String password;
 
     // constructors

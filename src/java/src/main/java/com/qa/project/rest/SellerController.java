@@ -6,6 +6,7 @@ import com.qa.project.services.SellerService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/sellers")
@@ -27,7 +28,10 @@ public class SellerController {
     }
 
     @PostMapping("/authenticate")
-    public String authenticateSeller(@RequestParam String email, @RequestParam String password) {
+    public String authenticateSeller(@RequestBody Map<String, String> requestBody) {
+        String email = requestBody.get("email");
+        String password = requestBody.get("password");
+
         String token = this.service.authenticateSeller(email, password);
         if (token != null) {
             return token;
@@ -35,8 +39,6 @@ public class SellerController {
             return "Authentication failed";
         }
     }
-
-
 
 
     @PostMapping("/create")
