@@ -177,9 +177,7 @@ export default () => {
 
 
 
-
-
-    function onSubmit(event) {
+    function onSubmit() {
 
         const options = {
             timeZone : "Europe/London",
@@ -237,9 +235,9 @@ export default () => {
     }
 
     return (
-
-
-            <form id="form1" onSubmit={onSubmit()}>
+        
+            
+            <form id="form1" onSubmit={onSubmit}>
                 <fieldset className='wrapper'>
                     <legend className='title'>Register Property</legend>
                     <br/>

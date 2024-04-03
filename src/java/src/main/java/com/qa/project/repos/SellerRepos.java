@@ -9,4 +9,6 @@ import java.util.List;
 
 @Repository
 public interface SellerRepos extends JpaRepository<Seller, Integer> {
+    Seller findByEmail(String email);
+
 }

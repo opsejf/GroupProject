@@ -16,7 +16,7 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="0e0ba08d-475e-4f29-87f0-2bc0cd168a1a">
+    <connection id="1e3cf71f-e129-442e-90cf-7c0e355dc4d5">
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
@@ -25,6 +25,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="1e3cf71f-e129-442e-90cf-7c0e355dc4d5" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -43,7 +46,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="0e0ba08d-475e-4f29-87f0-2bc0cd168a1a" active="true" signed="true">
+      <connection id="1e3cf71f-e129-442e-90cf-7c0e355dc4d5" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -61,7 +64,7 @@
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="cGFzc3dvcmQ=" />
+          <deprecated-pwd value="cm9vdA==" />
         </database>
         <properties>
           <auto-commit value="false" />
@@ -107,6 +110,7 @@
           <debugger-type value="ASK" />
         </debugger>
         <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
+          <object-filters />
           <object-type-filter use-master-settings="true">
             <object-type name="SCHEMA" enabled="true" />
             <object-type name="USER" enabled="true" />
@@ -134,7 +138,6 @@
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
           </object-type-filter>
-          <object-name-filters />
         </object-filters>
       </connection>
     </connections>
