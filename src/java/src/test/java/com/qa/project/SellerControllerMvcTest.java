@@ -62,7 +62,7 @@ public class SellerControllerMvcTest {
         MvcResult result = this.mvc.perform(mockRequest)
                 .andExpect(checkStatusCode)
                 .andExpect(checkBody)
-                .andDo(print("$.id"));
+                .andDo(print()).andReturn();
 
         print((OutputStream) result);
     }
