@@ -4,10 +4,12 @@ import com.qa.project.entities.Properties;
 import com.qa.project.entities.Status;
 import com.qa.project.entities.Type;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import com.qa.project.services.PropertiesService;
 
 import java.util.List;
+@Repository
 @RequestMapping("/Properties")
 @RestController
 public class PropertiesController {

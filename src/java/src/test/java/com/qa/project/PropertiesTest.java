@@ -2,10 +2,10 @@ package com.qa.project;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.project.entities.*;
-import jakarta.persistence.Column;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
