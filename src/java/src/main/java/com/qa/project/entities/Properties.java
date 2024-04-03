@@ -11,7 +11,7 @@ public class Properties {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     @Column
     private String address;
     @Column
@@ -50,15 +50,44 @@ public class Properties {
     @Column
     private String img9;
 
+    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, Float price, Status status, Seller mockSeller) {
+        // Empty constructor required by JPA
+    }
+
+    // Constructor with parameters
+    public Properties(String address, String postcode, Type type, int bedrooms, int bathrooms,
+                      boolean garden, float price, Status status, String description, String thumbnail,
+                      String img2, String img3, String img4, String img5, String img6, String img7,
+                      String img8, String img9, Seller mockSeller, Buyer mockBuyer) {
+        this.address = address;
+        this.postcode = postcode;
+        this.type = type;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.garden = garden;
+        this.price = price;
+        this.status = status;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
+        this.img5 = img5;
+        this.img6 = img6;
+        this.img7 = img7;
+        this.img8 = img8;
+        this.img9 = img9;
+    }
+
 
 
 
     // Getters
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

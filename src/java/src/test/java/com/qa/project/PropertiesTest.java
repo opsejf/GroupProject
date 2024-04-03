@@ -2,11 +2,18 @@ package com.qa.project;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.project.entities.Properties;
+import com.qa.project.entities.Status;
+import com.qa.project.entities.Type;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,35 +37,36 @@ public class PropertiesTest {
     */
 
     @Mock
-    private SellerDomain mockSeller;
+    private Seller mockSeller;
     @Mock
-    private BuyerDomain mockBuyer;
+    private Buyer mockBuyer;
 
-    private Property property;
-    private Property propertyWithBuyer;
-    private Long id = 1;
-    private String address = "123 Main St";
-    private String postcode = "12345";
-    private TypeEnum type = TypeEnum.APARTMENT;
-    private Integer bedrooms = 3;
-    private Integer bathrooms = 3;
-    private Boolean garden = true;
-    private Float price = (float) 3000000.00;
-    private StatusEnum status = StatusEnum.FORSALE;
+    private Properties property;
+    private Properties propertyWithBuyer;
+    private final Long id = 1L;
+    private final String address = "123 Main St";
+    private final String postcode = "12345";
+    private final Type type = Type.APARTMENT;
+    private final Integer bedrooms = 3;
+    private final Integer bathrooms = 3;
+    private  String description = "The best house on the street";
+    private final Boolean garden = true;
+    private final Float price = (float) 3000000.00;
+    private final Status status = Status.FORSALE;
 
     @BeforeEach
     public void setUp() {
-        property = new PropertyDomain(id, address, postcode, type, bedrooms, bathrooms,
-                garden, price, status,mockSeller);
+        propertyWithBuyer = new Properties (id, address, postcode, type, bedrooms,
+                bathrooms, garden, price, status, mockSeller);
 
-        propertyWithBuyer = new PropertyDomainid, address, postcode, type, bedrooms,
-                bathrooms, garden, price, status, mockSeller, mockBuyer);
+        property = new Properties(id, address, postcode, type, bedrooms, bathrooms,
+                garden, price, status, mockSeller);
 
-    }
+    ;}
 
     @Test
     public void testDefaultConstructor() {
-        PropertyDomain defaultProperty = new PropertyDomain();
+        Properties defaultProperty = new Properties(id, address, postcode, type, bedrooms, bathrooms, garden, price, status, mockSeller);
         assertNotNull(defaultProperty);
     }
 
@@ -71,6 +79,7 @@ public class PropertiesTest {
         assertEquals(type, property.getType());
         assertEquals(bedrooms, property.getBedrooms());
         assertEquals(bathrooms, property.getBathrooms());
+        assertEquals(description, description.getDescription());
         assertEquals(garden, property.getGarden());
         assertEquals(price, property.getPrice());
         assertEquals(status, property.getStatus());
@@ -86,6 +95,7 @@ public class PropertiesTest {
         assertEquals(type, propertyWithBuyer.getType());
         assertEquals(bedrooms, propertyWithBuyer.getBedrooms());
         assertEquals(bathrooms, propertyWithBuyer.getBathrooms());
+        assertEquals(description, description.getDescription());
         assertEquals(garden, propertyWithBuyer.getGarden());
         assertEquals(price, propertyWithBuyer.getPrice());
         assertEquals(status, propertyWithBuyer.getStatus());
@@ -122,6 +132,9 @@ public class PropertiesTest {
     public void testGetBathrooms() {
         assertEquals(bathrooms, property.getBathrooms());
     }
+
+    @Test
+    public void testGetDescription(){ assertEquals(description, property.getDescription());}
     @Test
     public void testGetGarden() {
         assertEquals(garden, property.getGarden());
@@ -172,7 +185,7 @@ public class PropertiesTest {
     @Test
     public void testSetType() {
         
-        TypeEnum newType = TypeEnum.DETACHED;
+        Type newType = Type.DETACHED;
         property.setType(newType);
         assertEquals(newType, property.getType());
     }
@@ -212,7 +225,7 @@ public class PropertiesTest {
 
     @Test
     public void testSetStatus() {
-        StatusEnum newStatus = StatusEnum.SOLD;
+        Status newStatus = Status.SOLD;
         property.setStatus(newStatus);
         assertEquals(newStatus, property.getStatus());
     }
@@ -220,14 +233,14 @@ public class PropertiesTest {
 
     @Test
     public void testSetSeller() {
-        SellerDomain newSeller = mock(SellerDomain.class);
+        Seller newSeller = mock(Seller.class);
         property.setSeller(newSeller);
         assertEquals(newSeller, property.getSeller());
     }
 
     @Test
     public void testSetBuyer() {
-        BuyerDomain newBuyer = mock(BuyerDomain.class);
+        Buyer newBuyer = mock(Buyer.class);
         propertyWithBuyer.setBuyer(newBuyer);
         assertEquals(newBuyer, propertyWithBuyer.getBuyer());
     }
