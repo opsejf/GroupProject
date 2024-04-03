@@ -40,17 +40,13 @@ public class SellerService {
     public Seller updateSeller(int id,
                                String firstName,
                                String lastName,
-                               String address,
                                String email,
-                               String postCode,
                                String telephone) {
         Seller updatingSeller = this.repo.findById(id).get();
 
         if(firstName != null) updatingSeller.setFirstName(firstName);
         if(lastName != null) updatingSeller.setLastName(lastName);
-        if(address != null) updatingSeller.setAddress(address);
         if(email != null) updatingSeller.setEmail(email);
-        if(postCode != null) updatingSeller.setPostCode(postCode);
         if(telephone != null) updatingSeller.setTelephone(telephone);
 
         return this.repo.save(updatingSeller);

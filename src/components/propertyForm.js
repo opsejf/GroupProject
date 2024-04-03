@@ -62,6 +62,7 @@ export default () => {
         }
 
         postData('http://localhost:8000/properties', properties);
+        window.location.reload();
     }
 
     // Function to be called for posting data to the json DB, takes paraments url and data (object)

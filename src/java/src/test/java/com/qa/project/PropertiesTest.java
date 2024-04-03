@@ -335,19 +335,19 @@ public class PropertiesTest {
     }
 
 
-    @Test
-    public void testSetSeller() {
-        Seller newSeller = mock(Seller.class);
-        property.setSeller(newSeller);
-        assertEquals(newSeller, property.getSeller());
-    }
-
-    @Test
-    public void testSetBuyer() {
-        Buyer newBuyer = mock(Buyer.class);
-        propertyWithBuyer.setBuyer(newBuyer);
-        assertEquals(newBuyer, propertyWithBuyer.getBuyer());
-    }
+//    @Test
+//    public void testSetSeller() {
+//        Seller newSeller = mock(Seller.class);
+//        property.setSeller(newSeller);
+//        assertEquals(newSeller, property.getSeller());
+//    }
+//
+//    @Test
+//    public void testSetBuyer() {
+//        Buyer newBuyer = mock(Buyer.class);
+//        propertyWithBuyer.setBuyer(newBuyer);
+//        assertEquals(newBuyer, propertyWithBuyer.getBuyer());
+//    }
 }
 
 

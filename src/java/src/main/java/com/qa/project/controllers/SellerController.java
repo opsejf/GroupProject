@@ -1,4 +1,4 @@
-package com.qa.project.rest;
+package com.qa.project.controllers;
 
 import com.qa.project.entities.Seller;
 import com.qa.project.services.SellerService;
@@ -40,10 +40,8 @@ public class SellerController {
     public Seller updateSeller(@PathVariable int id,
                                @RequestParam(required = false) String firstName,
                                @RequestParam(required = false) String lastName,
-                               @RequestParam(required = false) String address,
                                @RequestParam(required = false) String email,
-                               @RequestParam(required = false) String postCode,
                                @RequestParam(required = false) String telephone) {
-        return this.service.updateSeller(id, firstName, lastName, address, email, postCode, telephone);
+        return this.service.updateSeller(id, firstName, lastName, email, telephone);
     }
 }

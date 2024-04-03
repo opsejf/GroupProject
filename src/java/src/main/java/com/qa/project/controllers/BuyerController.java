@@ -12,22 +12,22 @@ import java.util.List;
 public class BuyerController {
 
     @Autowired
-    private BuyerService service;
+    private BuyerService bService;
 
     public BuyerController(BuyerService service){
-        this.service = service;
+        this.bService = service;
     }
 
     @GetMapping("/buyers")
     public List<Buyer> getAll() {
-        return this.service.getAll();
+        return this.bService.getAll();
     }
     @GetMapping("/buyer/{id}")
-    public Buyer get(@PathVariable int id) { return this.service.get(id); }
+    public Buyer get(@PathVariable int id) { return this.bService.get(id); }
 
     @PostMapping("/create-buyer")
     public Buyer createBuyer(@RequestBody Buyer buyer) {
-        return this.service.createBuyer(buyer);
+        return this.bService.createBuyer(buyer);
     }
 
     @PatchMapping("/update-buyer/{id}")
@@ -37,11 +37,11 @@ public class BuyerController {
                              @RequestParam(required = false) String email,
                              @RequestParam(required = false) String telephone)
     {
-        return this.service.updateBuyer(id, first_name, last_name, email, telephone);
+        return this.bService.updateBuyer(id, first_name, last_name, email, telephone);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove-buyer/{id}")
     public Buyer removeBuyer(@PathVariable int id){
-        return this.service.removeBuyer(id);
+        return this.bService.removeBuyer(id);
     }
 }

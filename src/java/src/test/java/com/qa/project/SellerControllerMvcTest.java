@@ -12,14 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.web.servlet.*;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import java.io.OutputStream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -67,7 +65,7 @@ public class SellerControllerMvcTest {
         sellerId = objectId;
         System.out.println(objectId);
 
-        Seller resultTestSeller = new Seller(objectId, "TESTTHISSELLER", "Doe", "email", "124 main", "M1", "0832098");
+        Seller resultTestSeller = new Seller("TESTTHISSELLER", "Doe", "email", "124 main", "M1", "0832098");
         String resultTestSellerAsJson = this.mapper.writeValueAsString(resultTestSeller);
         ResultMatcher checkBody = MockMvcResultMatchers.content().json(resultTestSellerAsJson);
 
@@ -82,7 +80,7 @@ public class SellerControllerMvcTest {
     @Test
     @Order(2)
     void testGetSeller() throws Exception {
-        Seller resultGetSellerTest = new Seller(sellerId, "TESTTHISSELLER", "Doe", "email", "124 main", "M1", "0832098");
+        Seller resultGetSellerTest = new Seller("TESTTHISSELLER", "Doe", "email", "124 main", "M1", "0832098");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
         this.mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getSeller/{id}", sellerId)
@@ -114,7 +112,7 @@ public class SellerControllerMvcTest {
                 .param("firstName" , "Changed"));
 
 
-        Seller resultGetSellerTest = new Seller(sellerId, "Changed", "Doe", "email", "124 main", "M1", "0832098");
+        Seller resultGetSellerTest = new Seller("Changed", "Doe", "email", "124 main", "M1", "0832098");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
         mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getSeller/{id}", sellerId)
