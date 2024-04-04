@@ -40,14 +40,15 @@ public class SellerControllerMvcTest {
             "TESTTHISSELLER",
             "Doe",
             "email",
-            "0832098");
+            "0832098",
+            "password");
 
     // Create seller test
     @Test
     @Order(1)
     void testCreate() throws Exception {
         String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
-        RequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/sellers/create")
+        RequestBuilder mockRequest = MockMvcRequestBuilders.post("/create")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson);
 
         ResultMatcher checkStatusCode = MockMvcResultMatchers.status().isOk();
@@ -60,7 +61,7 @@ public class SellerControllerMvcTest {
         long objectId = jsonResponse.get("id").asLong();
         sellerId = objectId;
 
-        Seller resultTestSeller = new Seller(objectId, "TESTTHISSELLER", "Doe", "email", "0832098");
+        Seller resultTestSeller = new Seller(objectId, "TESTTHISSELLER", "Doe", "email", "0832098", "password");
         String resultTestSellerAsJson = this.mapper.writeValueAsString(resultTestSeller);
         ResultMatcher checkBody = MockMvcResultMatchers.content().json(resultTestSellerAsJson);
 
@@ -73,10 +74,10 @@ public class SellerControllerMvcTest {
     @Test
     @Order(2)
     void testGetSeller() throws Exception {
-        Seller resultGetSellerTest = new Seller(sellerId, "TESTTHISSELLER", "Doe", "email", "0832098");
+        Seller resultGetSellerTest = new Seller(sellerId, "TESTTHISSELLER", "Doe", "email", "0832098", "password");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
-        this.mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getSeller/{id}", sellerId)
+        this.mvc.perform(MockMvcRequestBuilders.get("/getSeller/{id}", sellerId)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson));
@@ -87,7 +88,7 @@ public class SellerControllerMvcTest {
     @Order(3)
     void testGetAllSellers() throws Exception {
         String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
-        mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getAll")
+        mvc.perform(MockMvcRequestBuilders.get("/getAllSellers")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
@@ -97,15 +98,15 @@ public class SellerControllerMvcTest {
     @Test
     @Order(4)
     void testPatchSellers() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.patch("/api/sellers/update/{id}", sellerId)
+        mvc.perform(MockMvcRequestBuilders.patch("/update/{id}", sellerId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .param("firstName" , "Changed"));
 
 
-        Seller resultGetSellerTest = new Seller(sellerId, "Changed", "Doe", "email", "0832098");
+        Seller resultGetSellerTest = new Seller(sellerId, "Changed", "Doe", "email", "0832098","password");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
-        mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getSeller/{id}", sellerId)
+        mvc.perform(MockMvcRequestBuilders.get("/getSeller/{id}", sellerId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson));
@@ -117,7 +118,7 @@ public class SellerControllerMvcTest {
     @Test
     @Order(5)
     void testDeleteSeller() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/sellers/remove/{id}", sellerId)
+        mvc.perform(MockMvcRequestBuilders.delete("/removeSeller/{id}", sellerId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }

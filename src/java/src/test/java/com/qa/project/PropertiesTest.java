@@ -63,7 +63,7 @@ public class PropertiesTest {
     private static final String img8 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
     private static final String img9 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
 
-    public static Properties property = new Properties(1L,"123 Main St", "12345", Type.APARTMENT, 4 ,3,
+    public static Properties property = new Properties("123 Main St", "12345", Type.APARTMENT, 4 ,3,
              true,   300.00F, Status.FORSALE, "The best house on the street",
             "https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155.jpg?fit=700,700",
             "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
@@ -76,9 +76,9 @@ public class PropertiesTest {
             "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg"
             );
 
-    public static Properties propertyWithBuyer = new Properties(id, address, postcode, type, bedrooms,
+    public static Properties propertyWithBuyer = new Properties(address, postcode, type, bedrooms,
                 bathrooms, garden, price, status, description, thumbnail, img2 ,img3, img4, img5,
-                img6, img7, img8, img9, 1, 1);
+                img6, img7, img8, img9);
 //    @BeforeEach
 //    public void setUp() {
 //        when(mockSeller.getId()).thenReturn(id);
@@ -110,7 +110,7 @@ public class PropertiesTest {
 
     @Test
     public void testDefaultConstructor() throws Exception {
-        Properties defaultProperty = new Properties(id, address, postcode, type, bedrooms, bathrooms, garden, price, status, description,
+        Properties defaultProperty = new Properties(address, postcode, type, bedrooms, bathrooms, garden, price, status, description,
                 thumbnail,img2 ,img3, img4, img5,
                 img6, img7, img8, img9);
         assertNotNull(defaultProperty);
@@ -121,7 +121,6 @@ public class PropertiesTest {
     @Test
     public void testNoBuyerConstructor() {
         assertNotNull(property);
-        assertEquals(id, property.getId());
         assertEquals(address, property.getAddress());
         assertEquals(postcode, property.getPostcode());
         assertEquals(type, property.getType());
@@ -145,7 +144,6 @@ public class PropertiesTest {
     @Test
     public void testAllArgumentsConstructor() {
 //        assertNotNull(propertyWithBuyer);
-        assertEquals(id, propertyWithBuyer.getId());
         assertEquals(address, propertyWithBuyer.getAddress());
         assertEquals(postcode, propertyWithBuyer.getPostcode());
         assertEquals(type, propertyWithBuyer.getType());
@@ -164,8 +162,6 @@ public class PropertiesTest {
         assertEquals(img8, propertyWithBuyer.getImg8());
         assertEquals(img9, propertyWithBuyer.getImg9());
         assertEquals(status, propertyWithBuyer.getStatus());
-        assertEquals(mockSeller, propertyWithBuyer.getSeller());
-        assertEquals(mockBuyer, propertyWithBuyer.getBuyer());
     }
 
 //    @Test
@@ -224,12 +220,12 @@ public class PropertiesTest {
 //        assertEquals(mockBuyer, propertyWithBuyer.getBuyer());
 //    }
 
-    @Test
-    public void testSetId() {
-
-        property.setId(1L);
-        assertEquals(1L, property.getId());
-    }
+//    @Test
+//    public void testSetId() {
+//
+//        property.setId(1L);
+//        assertEquals(1L, property.getId());
+//    }
 
     @Test
     public void testSetAddress() {

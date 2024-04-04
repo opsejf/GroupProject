@@ -1,8 +1,6 @@
 package com.qa.project.entities;
 
-import io.swagger.v3.oas.annotations.media.DependentRequired;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 
 
 @Entity
@@ -13,10 +11,10 @@ public class Seller {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "lastName", nullable = false)
 
     private String lastName;
 
@@ -24,8 +22,11 @@ public class Seller {
     private String email;
 
 
-    @Column(name = "telephone", nullable = false)
+    @Column(name = "telephone", nullable = false, unique = true)
     private String telephone;
+
+    @Column(name = "password", nullable = true, unique = false)
+    private String password;
 
     // constructors
     public Seller() {
@@ -35,25 +36,29 @@ public class Seller {
     public Seller(        String firstName,
                           String lastName,
                           String email,
-
-                          String telephone) {
+                          String telephone,
+                          String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.telephone = telephone;
+        this.password = password;
     }
 
     public Seller(long id,
                 String firstName,
                   String lastName,
                   String email,
-                  String telephone) {
+                  String telephone,
+                  String password
+    ) {
         super();
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.telephone = telephone;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -88,7 +93,15 @@ public class Seller {
         this.telephone = telephone;
     }
 
-    public long getId() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getId() {
         return id;
     }
 
