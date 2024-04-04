@@ -10,12 +10,12 @@ class SellerEntityTest {
 
     @BeforeEach
     void setUp() {
-        seller = new Seller("Changed", "Doe", "email", "124 main", "M1", "0832098");
+        seller = new Seller("Changed", "Doe", "email", "0832098");
     }
 
     @Test
     void testDefaultSellerConstructor() {
-        Seller defaultSeller = new Seller("Changed", "Doe", "email", "124 main", "M1", "0832098");
+        Seller defaultSeller = new Seller("Changed", "Doe", "email", "0832098");
         assertNotNull(defaultSeller);
     }
 

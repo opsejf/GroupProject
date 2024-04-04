@@ -11,7 +11,7 @@ public class Seller {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private long id;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
