@@ -4,6 +4,7 @@ import com.qa.project.entities.Properties;
 import com.qa.project.entities.Status;
 import com.qa.project.entities.Type;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import com.qa.project.services.PropertiesService;
 
@@ -11,8 +12,6 @@ import java.util.List;
 //@RequestMapping("/Properties")
 @RestController
 public class PropertiesController {
-
-
 
     @Autowired
     private PropertiesService service;
@@ -61,7 +60,7 @@ public class PropertiesController {
     @PatchMapping("/update-property/{id}")
     public Properties update (@PathVariable int id, @RequestParam(required = false) String address, @RequestParam (required = false) String postcode,
                                         @RequestParam(required = false) Type type, @RequestParam Integer bedrooms, @RequestParam Integer bathrooms,
-                                        boolean garden, Status status, int price, String thumbnail, String description, String img2, String img3,
+                                        boolean garden, Status status, Float price, String thumbnail, String description, String img2, String img3,
                                         String img4, String img5, String img6, String img7, String img8, String img9){
 
        // if (thumbnail != null)  toUpdate.setThumbnail();
@@ -72,7 +71,5 @@ public class PropertiesController {
         garden,status, price,thumbnail, description,
                 img2, img3, img4, img5, img6, img7, img8, img9);
     }
-
-
 
 }

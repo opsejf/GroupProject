@@ -43,6 +43,8 @@ export default function(){
         },
         body: JSON.stringify(dataItem)
         })
+
+        window.location.reload();
     }
 
     return (

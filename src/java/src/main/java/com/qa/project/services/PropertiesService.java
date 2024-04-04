@@ -45,7 +45,7 @@ public class PropertiesService{
 
     public Properties update (int id, String address, String postcode,
                               Type type, Integer bedrooms, Integer bathrooms,
-                              boolean garden, Status status, int price, String thumbnail,
+                              boolean garden, Status status, Float price, String thumbnail,
                               String description, String img2, String img3, String img4,
                               String img5, String img6, String img7, String img8, String img9){
         Properties toUpdate = this.repo.findById(id).get();

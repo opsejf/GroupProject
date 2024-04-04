@@ -40,7 +40,7 @@ export default function (props){
         .then(dataItem => console.log(dataItem))
         .catch((error) =>console.error('error:',error))
 
-
+        window.location.reload();
 
     }
 

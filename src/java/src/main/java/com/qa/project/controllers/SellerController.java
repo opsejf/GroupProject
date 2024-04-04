@@ -1,4 +1,3 @@
-
 package com.qa.project.rest;
 
 import com.qa.project.entities.Seller;

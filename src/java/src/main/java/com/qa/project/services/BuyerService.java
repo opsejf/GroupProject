@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class BuyerService {
-
-    private final List<Buyer> buyers = new ArrayList<>();
     private BuyerRepo repo;
 
     public BuyerService(BuyerRepo repo) {

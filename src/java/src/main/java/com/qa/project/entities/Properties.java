@@ -8,7 +8,7 @@ public class Properties {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column
     private String address;
     @Column
@@ -22,7 +22,7 @@ public class Properties {
     @Column
     private boolean garden;
     @Column
-    private int price;
+    private Float price;
     @Column
     private Status status;
     @Column
@@ -47,15 +47,19 @@ public class Properties {
     @Column
     private String img9;
 
+//    private long buyerId;
+//
+//    private long sellerId;
+
 
 
 
     // Getters
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -113,11 +117,11 @@ public class Properties {
     }
 
 
-    public int getPrice() {
+    public Float getPrice() {
         return this.price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -218,10 +222,18 @@ public class Properties {
 
     public Properties() { super(); }
         // Empty constructor required by JPA
+//    public long getSeller() {
+//        return sellerId;
+//    }
+//
+//    public long setSeller(long sellerId) {
+//        this.sellerId = sellerId;
+//        return sellerId;
+//    }
 
     // Constructor with parameters
     public Properties(String address, String postcode, Type type, int bedrooms, int bathrooms,
-                      boolean garden, int price, Status status, String description, String thumbnail,
+                      boolean garden, Float price, Status status, String description, String thumbnail,
                       String img2, String img3, String img4, String img5, String img6, String img7,
                       String img8, String img9) {
         setAddress(address);
@@ -244,9 +256,18 @@ public class Properties {
         setImg9(img9);
     }
 
-
-
+//    public long getBuyer() {
+//        return buyerId;
+//    }
+//
+//    public long setBuyer(long buyerId) {
+//        this.buyerId = buyerId;
+//        return buyerId;
+//    }
 }
+
+
+
 
    
 
