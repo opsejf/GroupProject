@@ -1,9 +1,7 @@
 package com.qa.project.entities;
 
-import groovyjarjarantlr4.v4.analysis.LeftRecursiveRuleAnalyzer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,12 +10,12 @@ class SellerEntityTest {
 
     @BeforeEach
     void setUp() {
-        seller = new Seller();
+        seller = new Seller("Changed", "Doe", "email", "124 main", "M1", "0832098");
     }
 
     @Test
     void testDefaultSellerConstructor() {
-        Seller defaultSeller = new Seller();
+        Seller defaultSeller = new Seller("Changed", "Doe", "email", "124 main", "M1", "0832098");
         assertNotNull(defaultSeller);
     }
 

@@ -11,7 +11,7 @@ public class Properties {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     @Column
     private String address;
     @Column
@@ -50,15 +50,82 @@ public class Properties {
     @Column
     private String img9;
 
+    private int buyerId;
+
+    private int sellerId;
+
+
+    //private com.qa.project.entities.Seller Seller;
+    //private com.qa.project.entities.Buyer Buyer;
+
+//    public Properties(Long id, String address, String postcode, Type type, int bedrooms, int bathrooms,
+//                      String description, Boolean garden, Float price, String thumbnail, String img2, String img3, String img4,
+//                      String img5, String img6, String img7, String img8, String img9, String url, Status status) {
+//        // Empty constructor required by JPA
+//    }
+
+    // Constructor with parameters
+    public Properties(Long id, String address, String postcode, Type type, int bedrooms, int bathrooms,
+                      boolean garden, float price, Status status, String description, String thumbnail,
+                      String img2, String img3, String img4, String img5, String img6, String img7,
+                      String img8, String img9) {
+        this.id = id;
+        this.address = address;
+        this.postcode = postcode;
+        this.type = type;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.garden = garden;
+        this.price = price;
+        this.status = status;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
+        this.img5 = img5;
+        this.img6 = img6;
+        this.img7 = img7;
+        this.img8 = img8;
+        this.img9 = img9;
+    }
+
+    public Properties(long id, String address, String postcode, Type type, int bedrooms, int bathrooms,
+                      boolean garden, float price, Status status, String description, String thumbnail,
+                      String img2, String img3, String img4, String img5, String img6, String img7,
+                      String img8, String img9, int buyerId, int sellerId) {
+        this.id = id;
+        this.address = address;
+        this.postcode = postcode;
+        this.type = type;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.garden = garden;
+        this.price = price;
+        this.status = status;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.img2 = img2;
+        this.img3 = img3;
+        this.img4 = img4;
+        this.img5 = img5;
+        this.img6 = img6;
+        this.img7 = img7;
+        this.img8 = img8;
+        this.img9 = img9;
+        this.buyerId = buyerId;
+        this.sellerId = sellerId;
+    }
+    //public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, String description, Boolean garden, Float price, Status status, com.qa.project.entities.Seller mockSeller) {
 
 
 
     // Getters
-    public int getId() {
+    public long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -121,7 +188,7 @@ public class Properties {
     }
 
     public void setPrice(Float price) {
-        this.price = this.price;
+        this.price = price;
     }
 
 
@@ -219,7 +286,23 @@ public class Properties {
     }
 
 
+    public int getSeller() {
+        return sellerId;
+    }
 
+    public int setSeller(int sellerId) {
+        this.sellerId = sellerId;
+        return sellerId;
+    }
+
+    public int getBuyer() {
+        return buyerId;
+    }
+
+    public int setBuyer(int buyerId) {
+        this.buyerId = buyerId;
+        return buyerId;
+    }
 }
 
    

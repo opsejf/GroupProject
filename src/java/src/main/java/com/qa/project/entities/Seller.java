@@ -11,7 +11,7 @@ public class Seller {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -35,6 +35,7 @@ public class Seller {
     public Seller(        String firstName,
                           String lastName,
                           String email,
+
                           String telephone) {
         this.firstName = firstName;
         this.lastName = lastName;

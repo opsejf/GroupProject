@@ -121,4 +121,6 @@ public class SellerControllerMvcTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
+
 }
