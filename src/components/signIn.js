@@ -1,66 +1,46 @@
-import '../styles/form.css';
+import '../styles/signIn.css';
 import React, { useState } from 'react';
 import Properties from '../database/Properties.json';
+import axios from 'axios';
 
 
+export default function SignIn({setToken}){
 
-export default function(props){
-
-    // setting functions to store data inputted in form
-
-    // const [email, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [telephone, setTelephone] = useState("");
-
-    function handleSubmit(event){
+     function handleSubmit(event){
         event.preventDefault();
+    
+        const email = event.target.email.value;
+        const password =  event.target.password.value
 
-        
-        // Gathering length of buyers data to populate ID number
-        let buyerslist = Properties.buyers;
-        let buyerlength = buyerslist.length;
-        let id = buyerlength + 1;
-        
-
-        // Create the object from the form input data
-
-        let dataItem = {
-            ID: id,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            telephone: telephone
-        }
-
-        // sending new buyer details to be stored in database
-
-        fetch("http://localhost:8000/buyers", {
-        method: "post",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dataItem)
+ 
+        const response =  axios.post("http://localhost:8080/api/sellers/authenticate", 
+        {email: email,
+        password: password})
+        .then((response) => {
+            const token = response.data;
+            return setToken(token)
+        })
+        .catch(err => {
+            console.error(err);
         })
     }
 
     return (
         // creating actual form
-        <form id="form1">
-            <fieldset className="wrapper">
-                
-                    <legend className="title">Sign in</legend>
+        <form id="form1" onSubmit={(event) => {
+            handleSubmit(event);
+        }}>
+            <fieldset className="wrapper-sign-in">
+                    <legend className="sign-in-title">Sign in</legend>
                     <br></br>
-                    <b className='labels'>Email or Username</b>
-                    <input className='fields' type='text'  name='email'  required="required"></input>
+                    <b className='sign-in-labels'>Email or Username</b>
+                    <input className='sign-in-fields' type='text'  name='email'  required="required"></input>
                     <br/>
                     
-                    <b className='labels'>Password</b>
-                    <input className='fields' type='password' name='lastName' required="required"></input>
+                    <b className='sign-in-labels'>Password</b>
+                    <input className='sign-in-fields' type='password' name='password' required="required"></input>
                     <br />
-                    <button className='submit' type="submit" form="form1">Sign in</button>
-                
+                    <button className='submit-sign-in' type="submit" form="form1">Sign in</button>
             </fieldset>
         </form>
     );
