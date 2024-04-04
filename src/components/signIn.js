@@ -12,8 +12,10 @@ export default function SignIn({setToken}){
         const email = event.target.email.value;
         const password =  event.target.password.value
 
- 
-        const response =  axios.post("http://localhost:8080/api/sellers/authenticate", 
+
+
+
+        const response =  axios.post("http://localhost:8080/authenticate",
         {email: email,
         password: password})
         .then((response) => {
