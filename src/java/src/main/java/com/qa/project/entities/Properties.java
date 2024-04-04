@@ -118,7 +118,7 @@ public class Properties {
     }
 
     public void setPrice(int price) {
-        this.price = this.price;
+        this.price = price;
     }
 
 
@@ -216,34 +216,33 @@ public class Properties {
     }
 
 
-//    public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, int price, Status status, Seller mockSeller) {
-//        // Empty constructor required by JPA
-//    }
-//
-//    // Constructor with parameters
-//    public Properties(String address, String postcode, Type type, int bedrooms, int bathrooms,
-//                      boolean garden, int price, Status status, String description, String thumbnail,
-//                      String img2, String img3, String img4, String img5, String img6, String img7,
-//                      String img8, String img9) {
-//        this.address = address;
-//        this.postcode = postcode;
-//        this.type = type;
-//        this.bedrooms = bedrooms;
-//        this.bathrooms = bathrooms;
-//        this.garden = garden;
-//        this.price = price;
-//        this.status = status;
-//        this.description = description;
-//        this.thumbnail = thumbnail;
-//        this.img2 = img2;
-//        this.img3 = img3;
-//        this.img4 = img4;
-//        this.img5 = img5;
-//        this.img6 = img6;
-//        this.img7 = img7;
-//        this.img8 = img8;
-//        this.img9 = img9;
-//    }
+    public Properties() { super(); }
+        // Empty constructor required by JPA
+
+    // Constructor with parameters
+    public Properties(String address, String postcode, Type type, int bedrooms, int bathrooms,
+                      boolean garden, int price, Status status, String description, String thumbnail,
+                      String img2, String img3, String img4, String img5, String img6, String img7,
+                      String img8, String img9) {
+        setAddress(address);
+        setPostcode(postcode);
+        setType(type);
+        setBedrooms(bedrooms);
+        setBathrooms(bathrooms);
+        setGarden(garden);
+        setPrice(price);
+        setStatus(status);
+        setDescription(description);
+        setThumbnail(thumbnail);
+        setImg2(img2);
+        setImg3(img3);
+        setImg4(img4);
+        setImg5(img5);
+        setImg6(img6);
+        setImg7(img7);
+        setImg8(img8);
+        setImg9(img9);
+    }
 
 
 
@@ -255,4 +254,4 @@ public class Properties {
 
 //, Seller mockSeller, Buyer mockBuyer
 
-
+//        Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms, Boolean garden, int price, Status status, Seller mockSeller
