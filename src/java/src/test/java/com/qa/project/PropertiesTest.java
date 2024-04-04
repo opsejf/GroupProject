@@ -36,52 +36,64 @@ public class PropertiesTest {
     }
     */
 
-    @Mock
-    private Seller mockSeller;
-    @Mock
-    private Buyer mockBuyer;
 
-    private Properties property;
-    private Properties propertyWithBuyer;
-    private final Long id = 1L;
-    private final String address = "123 Main St";
-    private final String postcode = "12345";
-    private final Type type = Type.APARTMENT;
-    private final Integer bedrooms = 4;
-    private final Integer bathrooms = 3;
-    private final String description = "The best house on the street";
-    private final Boolean garden = true;
-    private final Float price = (float) 300.00;
-    private final Status status = Status.FORSALE;
+    private final long mockSeller = 1L;
 
-    private final String thumbnail = "https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155.jpg?fit=700,700";
-    private final String img2 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img3 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img4 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img5 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img6 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img7 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img8 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
-    private final String img9 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private final long mockBuyer = 1L;
 
-    @BeforeEach
-    public void setUp() {
-        when(mockSeller.getId()).thenReturn(id);
+//    private Properties property;
+    private static final Long id = 1L;
+    private static final String address = "123 Main St";
+    private static final String postcode = "12345";
+    private static final Type type = Type.APARTMENT;
+    private static final Integer bedrooms = 4;
+    private static final Integer bathrooms = 3;
+    private static final String description = "The best house on the street";
+    private static final Boolean garden = true;
+    private static final Float price = (float) 300.00;
+    private  static final Status status = Status.FORSALE;
+
+    private static final String thumbnail = "https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155.jpg?fit=700,700";
+    private static final String img2 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private static final String img3 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private static final String img4 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private static final String img5 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private static final String img6 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private  static final String img7 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private static final String img8 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+    private static final String img9 = "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg";
+
+    public static Properties property = new Properties(1L,"123 Main St", "12345", Type.APARTMENT, 4 ,3,
+             true,   300.00F, Status.FORSALE, "The best house on the street",
+            "https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155.jpg?fit=700,700",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+            "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg"
+            );
+
+    public static Properties propertyWithBuyer = new Properties(id, address, postcode, type, bedrooms,
+                bathrooms, garden, price, status, description, thumbnail, img2 ,img3, img4, img5,
+                img6, img7, img8, img9, 1, 1);
+//    @BeforeEach
+//    public void setUp() {
+//        when(mockSeller.getId()).thenReturn(id);
 //        when(mockSeller.getAddress()).thenReturn(address);
 //        when(property.getDescription()).thenReturn(description);
 
 
-        propertyWithBuyer = new Properties (id, address, postcode, type, bedrooms,
-                bathrooms, description, garden, price,thumbnail,img2 ,img3, img4, img5,
-                img6, img7, img8, img9, "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg", status, mockSeller);
 
-        property = new Properties(id, address, postcode, type, bedrooms, bathrooms,
-                description, garden, price,thumbnail,img2 ,img3, img4, img5,
-                img6, img7, img8, img9, "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg", status, mockSeller);
+//        property = new Properties(id, address, postcode, type, bedrooms, bathrooms,
+//                description, garden, price,thumbnail,img2 ,img3, img4, img5,
+//                img6, img7, img8, img9, "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg", status, mockSeller);
 //        Properties noBuyer = new Properties(1L,"123 Main St", "12345",Type.APARTMENT,  4 ,3,
-//                "The best house on the street", true, (float) 3000.00,
-//                "https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155.jpg?fit=700,700",
-//                "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
+//               "The best house on the street", true, (float) 3000.00,
+//               "https://www.rd.com/wp-content/uploads/2019/11/cat-10-e1573844975155.jpg?fit=700,700",
+//               "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
 //                "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
 //                "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
 //                "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
@@ -92,69 +104,69 @@ public class PropertiesTest {
 //                "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg",
 //                Status.FORSALE, mockSeller);
 
-    ;}
+    ;
 
 
 
     @Test
-    public void testDefaultConstructor() {
-        Properties defaultProperty = new Properties(id, address, postcode, type, bedrooms, bathrooms, description,
-                garden, price,thumbnail,img2 ,img3, img4, img5,
-                img6, img7, img8, img9, "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/streams/2013/May/130522/6C7536084-g-hlt-120105-puppy-423p.jpg", status, mockSeller);
+    public void testDefaultConstructor() throws Exception {
+        Properties defaultProperty = new Properties(id, address, postcode, type, bedrooms, bathrooms, garden, price, status, description,
+                thumbnail,img2 ,img3, img4, img5,
+                img6, img7, img8, img9);
         assertNotNull(defaultProperty);
+        System.out.println(defaultProperty.getDescription());
     }
 
 
-//    @Test
-//    public void testNoBuyerConstructor() {
-//        assertNotNull(property);
-//        assertEquals(id, property.getId());
-//        assertEquals(address, property.getAddress());
-//        assertEquals(postcode, property.getPostcode());
-//        assertEquals(type, property.getType());
-//        assertEquals(bedrooms, property.getBedrooms());
-//        assertEquals(bathrooms, property.getBathrooms());
-//        assertEquals(description,property.getDescription());
-//        assertEquals(garden, property.getGarden());
-//        assertEquals(price, property.getPrice());
-//        assertEquals(thumbnail, property.getThumbnail());
-//        assertEquals(img2, property.getImg2());
-//        assertEquals(img3, property.getImg3());
-//        assertEquals(img4, property.getImg4());
-//        assertEquals(img5, property.getImg5());
-//        assertEquals(img6, property.getImg6());
-//        assertEquals(img7, property.getImg7());
-//        assertEquals(img8, property.getImg8());
-//        assertEquals(img9, property.getImg9());
-//        assertEquals(status, property.getStatus());
-//        assertEquals(mockSeller, property.getSeller());
-//    }
+    @Test
+    public void testNoBuyerConstructor() {
+        assertNotNull(property);
+        assertEquals(id, property.getId());
+        assertEquals(address, property.getAddress());
+        assertEquals(postcode, property.getPostcode());
+        assertEquals(type, property.getType());
+        assertEquals(bedrooms, property.getBedrooms());
+        assertEquals(bathrooms, property.getBathrooms());
+        assertEquals(description,property.getDescription());
+        assertEquals(garden, property.getGarden());
+        assertEquals(price, property.getPrice());
+        assertEquals(thumbnail, property.getThumbnail());
+        assertEquals(img2, property.getImg2());
+        assertEquals(img3, property.getImg3());
+        assertEquals(img4, property.getImg4());
+        assertEquals(img5, property.getImg5());
+        assertEquals(img6, property.getImg6());
+        assertEquals(img7, property.getImg7());
+        assertEquals(img8, property.getImg8());
+        assertEquals(img9, property.getImg9());
+        assertEquals(status, property.getStatus());
+    }
 
-//    @Test
-//    public void testAllArgumentsConstructor() {
+    @Test
+    public void testAllArgumentsConstructor() {
 //        assertNotNull(propertyWithBuyer);
-//        assertEquals(id, propertyWithBuyer.getId());
-//        assertEquals(address, propertyWithBuyer.getAddress());
-//        assertEquals(postcode, propertyWithBuyer.getPostcode());
-//        assertEquals(type, propertyWithBuyer.getType());
-//        assertEquals(bedrooms, propertyWithBuyer.getBedrooms());
-//        assertEquals(bathrooms, propertyWithBuyer.getBathrooms());
-//        assertEquals(description, propertyWithBuyer.getDescription());
-//        assertEquals(garden, propertyWithBuyer.getGarden());
-//        assertEquals(price, propertyWithBuyer.getPrice());
-//        assertEquals(thumbnail, property.getThumbnail());
-//        assertEquals(img2, propertyWithBuyer.getImg2());
-//        assertEquals(img3, propertyWithBuyer.getImg3());
-//        assertEquals(img4, propertyWithBuyer.getImg4());
-//        assertEquals(img5, propertyWithBuyer.getImg5());
-//        assertEquals(img6, propertyWithBuyer.getImg6());
-//        assertEquals(img7, propertyWithBuyer.getImg7());
-//        assertEquals(img8, propertyWithBuyer.getImg8());
-//        assertEquals(img9, propertyWithBuyer.getImg9());
-//        assertEquals(status, propertyWithBuyer.getStatus());
-//        assertEquals(mockSeller, propertyWithBuyer.getSeller());
-//        assertEquals(mockBuyer, propertyWithBuyer.getBuyer());
-//    }
+        assertEquals(id, propertyWithBuyer.getId());
+        assertEquals(address, propertyWithBuyer.getAddress());
+        assertEquals(postcode, propertyWithBuyer.getPostcode());
+        assertEquals(type, propertyWithBuyer.getType());
+        assertEquals(bedrooms, propertyWithBuyer.getBedrooms());
+        assertEquals(bathrooms, propertyWithBuyer.getBathrooms());
+        assertEquals(description, propertyWithBuyer.getDescription());
+        assertEquals(garden, propertyWithBuyer.getGarden());
+        assertEquals(price, propertyWithBuyer.getPrice());
+        assertEquals(thumbnail, property.getThumbnail());
+        assertEquals(img2, propertyWithBuyer.getImg2());
+        assertEquals(img3, propertyWithBuyer.getImg3());
+        assertEquals(img4, propertyWithBuyer.getImg4());
+        assertEquals(img5, propertyWithBuyer.getImg5());
+        assertEquals(img6, propertyWithBuyer.getImg6());
+        assertEquals(img7, propertyWithBuyer.getImg7());
+        assertEquals(img8, propertyWithBuyer.getImg8());
+        assertEquals(img9, propertyWithBuyer.getImg9());
+        assertEquals(status, propertyWithBuyer.getStatus());
+        assertEquals(mockSeller, propertyWithBuyer.getSeller());
+        assertEquals(mockBuyer, propertyWithBuyer.getBuyer());
+    }
 
 //    @Test
 //    public void testGetId() {
