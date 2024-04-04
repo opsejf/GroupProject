@@ -43,8 +43,8 @@ public class Seller {
     public Seller(        String firstName,
                           String lastName,
                           String email,
-                          String address,
-                          String postCode,
+//                          String address,
+//                          String postCode,
                           String telephone,
                           String password
     ) {
