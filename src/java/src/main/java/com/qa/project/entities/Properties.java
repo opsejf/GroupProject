@@ -4,8 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import com.qa.project.entities.Seller;
-import com.qa.project.entities.Buyer;
 
 
 @Entity
@@ -62,7 +60,7 @@ public class Properties {
 
     public Properties(Long id, String address, String postcode, Type type, Integer bedrooms, Integer bathrooms,
                       String description, Boolean garden, Float price, String thumbnail, String img2, String img3, String img4,
-                      String img5, String img6, String img7, String img8, String img9, Status status, Seller mockSeller) {
+                      String img5, String img6, String img7, String img8, String img9, String url, Status status, Seller mockSeller) {
         // Empty constructor required by JPA
     }
 
