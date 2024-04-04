@@ -40,12 +40,9 @@ public class SellerControllerMvcTest {
             "TESTTHISSELLER",
             "Doe",
             "email",
-            "124 main",
-            "M1",
             "0832098");
 
     // Create seller test
-
     @Test
     @Order(1)
     void testCreate() throws Exception {
@@ -62,9 +59,8 @@ public class SellerControllerMvcTest {
         JsonNode jsonResponse = mapper.readTree(response);
         long objectId = jsonResponse.get("id").asLong();
         sellerId = objectId;
-        System.out.println(objectId);
 
-        Seller resultTestSeller = new Seller(objectId, "TESTTHISSELLER", "Doe", "email", "124 main", "M1", "0832098");
+        Seller resultTestSeller = new Seller(objectId, "TESTTHISSELLER", "Doe", "email", "0832098");
         String resultTestSellerAsJson = this.mapper.writeValueAsString(resultTestSeller);
         ResultMatcher checkBody = MockMvcResultMatchers.content().json(resultTestSellerAsJson);
 
@@ -74,31 +70,26 @@ public class SellerControllerMvcTest {
     }
 
     // Get seller by ID test
-
-
     @Test
     @Order(2)
     void testGetSeller() throws Exception {
-        Seller resultGetSellerTest = new Seller(sellerId, "TESTTHISSELLER", "Doe", "email", "124 main", "M1", "0832098");
+        Seller resultGetSellerTest = new Seller(sellerId, "TESTTHISSELLER", "Doe", "email", "0832098");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
         this.mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getSeller/{id}", sellerId)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson))
-                .andDo(print());
+                .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson));
     }
 
     // Get all sellers test
-
     @Test
     @Order(3)
     void testGetAllSellers() throws Exception {
         String newSellerAsJson = this.mapper.writeValueAsString(newSeller);
         mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getAll")
                 .contentType(MediaType.APPLICATION_JSON).content(newSellerAsJson))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(print());
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     // Patch sellers test
@@ -111,14 +102,13 @@ public class SellerControllerMvcTest {
                 .param("firstName" , "Changed"));
 
 
-        Seller resultGetSellerTest = new Seller(sellerId, "Changed", "Doe", "email", "124 main", "M1", "0832098");
+        Seller resultGetSellerTest = new Seller(sellerId, "Changed", "Doe", "email", "0832098");
         String resultGetSellerTestAsJson = this.mapper.writeValueAsString((resultGetSellerTest));
 
         mvc.perform(MockMvcRequestBuilders.get("/api/sellers/getSeller/{id}", sellerId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson))
-                .andDo(print());
+                .andExpect(MockMvcResultMatchers.content().json(resultGetSellerTestAsJson));
     }
 
 
@@ -129,7 +119,6 @@ public class SellerControllerMvcTest {
     void testDeleteSeller() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/api/sellers/remove/{id}", sellerId)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(print());
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

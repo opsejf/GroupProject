@@ -23,23 +23,19 @@ public class Buyer {
     @Column(name = "telephone", nullable = false)
     private String telephone;
 
-//    @Column(name = "properties", nullable = false)
-//    private ArrayList<Integer> properties;
-
-//    public Buyer(Integer id, String first_name, String last_name, String email, String telephone){
-//        this.id = id;
-//        this.first_name = first_name;
-//        this.last_name = last_name;
-//        this.email = email;
-//        this.telephone = telephone;
-//    }
+    public Buyer(long id, String first_name, String last_name, String email, String telephone){
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.telephone = telephone;
+    }
 
     public Buyer(String first_name, String last_name, String email, String telephone){
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.telephone = telephone;
-        //this.properties = properties;
     }
     public Buyer(){}
 
@@ -76,13 +72,4 @@ public class Buyer {
     public void setTelephone(String telephone){
         this.telephone = telephone;
     }
-
-   // public ArrayList<Integer> getProperties(){
-   //     return properties;
-  //  }
-
-   // public void setProperties(ArrayList<Integer> properties){
-    //    this.properties = properties;
-   // }
-
 }

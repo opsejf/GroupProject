@@ -12,8 +12,6 @@ import java.util.List;
 @RestController
 public class PropertiesController {
 
-
-
     @Autowired
     private PropertiesService service;
     public PropertiesController(PropertiesService service){
@@ -72,7 +70,5 @@ public class PropertiesController {
         garden,status, price,thumbnail, description,
                 img2, img3, img4, img5, img6, img7, img8, img9);
     }
-
-
 
 }

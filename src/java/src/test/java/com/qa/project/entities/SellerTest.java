@@ -24,14 +24,12 @@ class SellerEntityTest {
     // test all argument constructor and get functions for entity
     @Test
     void testAllArgsSellerConstructor() {
-        Seller allArgsSeller = new Seller("John", "Doe","email", "123 Main st", "M1 234", "123456");
+        Seller allArgsSeller = new Seller(1,"John", "Doe","email", "123456");
 
         assertEquals(1, allArgsSeller.getId());
         assertEquals("John", allArgsSeller.getFirstName());
         assertEquals("Doe", allArgsSeller.getLastName());
         assertEquals("email", allArgsSeller.getEmail());
-        assertEquals("123 Main st", allArgsSeller.getAddress());
-        assertEquals("M1 234", allArgsSeller.getPostCode());
         assertEquals("123456", allArgsSeller.getTelephone());
     }
 
@@ -54,17 +52,10 @@ class SellerEntityTest {
     }
 
     @Test
-    void testSetAddress() {
-        seller.setAddress("testAddress");
-        assertEquals("testAddress", seller.getAddress());
+    void testSetEmail() {
+        seller.setEmail("testAddress");
+        assertEquals("testAddress", seller.getEmail());
     }
-
-    @Test
-    void testSetPostcode() {
-        seller.setPostCode("testPostcode");
-        assertEquals("testPostcode", seller.getPostCode());
-    }
-
     @Test void testSetTelephone() {
         seller.setTelephone("00000");
         assertEquals("00000", seller.getTelephone());
