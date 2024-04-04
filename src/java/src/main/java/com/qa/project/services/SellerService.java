@@ -56,13 +56,13 @@ public class SellerService {
         return this.repo.save(updatingSeller);
     }
 
-//    public String authenticateSeller(String email, String password) {
-//        Seller seller = repo.findByEmail(email);
-//        if (seller != null && seller.getPassword().equals(password)) {
-//            return "testToken123";
-//        } else {
-//            return null;
-//        }
-//    }
+    public String authenticateSeller(String email, String password) {
+        Seller seller = repo.findByEmail(email);
+        if (seller != null && seller.getPassword().equals(password)) {
+            return "testToken123";
+        } else {
+            return null;
+        }
+    }
 
 }
