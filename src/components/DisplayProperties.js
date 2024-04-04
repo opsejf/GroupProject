@@ -43,7 +43,6 @@ function DisplayProperties() {
 
   const [iconClicked,setIconClicked] = useState(false);
   const handleIconClick = () => {
-    console.log("hi")
     setIconClicked(!iconClicked);
   }
 

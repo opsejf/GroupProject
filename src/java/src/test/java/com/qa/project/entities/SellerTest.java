@@ -10,25 +10,26 @@ class SellerEntityTest {
 
     @BeforeEach
     void setUp() {
-        seller = new Seller("Changed", "Doe", "email", "0832098");
+        seller = new Seller("Changed", "Doe", "email", "0832098", "password");
     }
 
     @Test
     void testDefaultSellerConstructor() {
-        Seller defaultSeller = new Seller("Changed", "Doe", "email", "0832098");
+        Seller defaultSeller = new Seller("Changed", "Doe", "email", "0832098", "password");
         assertNotNull(defaultSeller);
     }
 
     // test all argument constructor and get functions for entity
     @Test
     void testAllArgsSellerConstructor() {
-        Seller allArgsSeller = new Seller(1,"John", "Doe","email", "123456");
+        Seller allArgsSeller = new Seller(1,"John", "Doe","email", "123456", "password");
 
         assertEquals(1, allArgsSeller.getId());
         assertEquals("John", allArgsSeller.getFirstName());
         assertEquals("Doe", allArgsSeller.getLastName());
         assertEquals("email", allArgsSeller.getEmail());
         assertEquals("123456", allArgsSeller.getTelephone());
+        assertEquals("password", allArgsSeller.getPassword());
     }
 
     @Test

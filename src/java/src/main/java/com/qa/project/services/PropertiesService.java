@@ -56,7 +56,7 @@ public class PropertiesService{
         if(bedrooms != null) toUpdate.setBedrooms(bedrooms);
         if(bathrooms!= null) toUpdate.setBathrooms(bathrooms);
         if(status != null) toUpdate.setStatus (status);
-        if (price != null)  toUpdate.setPrice(price); // test to see if price < 0 still work
+        if(price != 0)  toUpdate.setPrice(price); // test to see if price < 0 still work
         if (description != null)  toUpdate.setDescription(description);
         if (thumbnail != null)  toUpdate.setThumbnail(thumbnail);
         if (img2 != null)  toUpdate.setImg2(img2);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Run npm install react-router-dom if you have issues with npm start 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Layout from './components/layoutComponent';
@@ -18,6 +18,7 @@ import DisplaySellers from './components/DisplaySellers.js'
 import DisplayBuyers from './components/DisplayBuyers.js'
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">

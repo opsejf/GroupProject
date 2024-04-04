@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.qa.project.services.PropertiesService;
 
 import java.util.List;
-@Repository
-@RequestMapping("/Properties")
+//@RequestMapping("/Properties")
 @RestController
 public class PropertiesController {
 
